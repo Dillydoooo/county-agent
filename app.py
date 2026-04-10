@@ -3,6 +3,7 @@ import html
 import re
 from pathlib import Path
 from datetime import datetime
+from urllib.parse import quote
 
 import streamlit as st
 
@@ -11,6 +12,11 @@ st.set_page_config(page_title="County Agent Alpha v3", layout="wide")
 BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
 RAW_DIR = BASE_DIR / "data" / "raw"
+
+# CHANGE THESE ONLY IF YOUR GITHUB REPO CHANGES
+GITHUB_OWNER = "Dillydoooo"
+GITHUB_REPO = "county-agent"
+GITHUB_BRANCH = "main"
 
 
 def parse_date_from_filename(filename):
@@ -85,10 +91,6 @@ def load_text_file(path):
     return path.read_text(encoding="utf-8", errors="ignore")
 
 
-def file_to_base64(path):
-    return base64.b64encode(path.read_bytes()).decode("utf-8")
-
-
 def make_text_data_url(text):
     encoded = base64.b64encode(text.encode("utf-8")).decode("utf-8")
     return f"data:text/plain;base64,{encoded}"
@@ -108,7 +110,7 @@ def list_parsed_files():
 
     def sort_key(path):
         dt = parse_date_from_filename(path.name)
-        return (dt or datetime.min, path.name)
+        return (dt or datetime.min, path.name.lower())
 
     return sorted(files, key=sort_key, reverse=True)
 
@@ -117,7 +119,7 @@ def file_matches_search(path, query):
     if not query.strip():
         return True
 
-    query = query.lower()
+    query = query.lower().strip()
 
     if query in clean_display_title(path).lower():
         return True
@@ -133,7 +135,8 @@ def highlight_text(text, query):
 
     if not query.strip():
         return (
-            "<pre style='white-space: pre-wrap; word-wrap: break-word;'>"
+            "<pre style='white-space: pre-wrap; word-wrap: break-word; "
+            "font-family: sans-serif; font-size: 15px; line-height: 1.5;'>"
             f"{escaped}</pre>"
         )
 
@@ -144,8 +147,18 @@ def highlight_text(text, query):
 
     highlighted = pattern.sub(replacer, escaped)
     return (
-        "<pre style='white-space: pre-wrap; word-wrap: break-word;'>"
+        "<pre style='white-space: pre-wrap; word-wrap: break-word; "
+        "font-family: sans-serif; font-size: 15px; line-height: 1.5;'>"
         f"{highlighted}</pre>"
+    )
+
+
+def github_blob_url_for_pdf(pdf_path):
+    relative_path = pdf_path.relative_to(BASE_DIR).as_posix()
+    encoded_path = quote(relative_path, safe="/")
+    return (
+        f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/blob/"
+        f"{GITHUB_BRANCH}/{encoded_path}"
     )
 
 
@@ -170,7 +183,7 @@ if st.session_state.selected_file:
         text = load_text_file(selected_path)
         pdf_path = find_matching_pdf(selected_path)
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
             st.markdown(
@@ -182,7 +195,8 @@ if st.session_state.selected_file:
             st.download_button(
                 "Download text",
                 text,
-                file_name=selected_path.name
+                file_name=selected_path.name,
+                mime="text/plain"
             )
 
         with col3:
@@ -190,31 +204,27 @@ if st.session_state.selected_file:
                 st.download_button(
                     "Download PDF",
                     pdf_path.read_bytes(),
-                    file_name=pdf_path.name
+                    file_name=pdf_path.name,
+                    mime="application/pdf"
                 )
+
+        with col4:
+            if pdf_path:
+                pdf_url = github_blob_url_for_pdf(pdf_path)
+                st.link_button("View Original PDF", pdf_url)
 
         st.markdown(
             highlight_text(get_preview(text, max_chars=5000), search_query),
             unsafe_allow_html=True
         )
 
-        if pdf_path:
-            pdf_base64 = file_to_base64(pdf_path)
-            st.markdown(
-                f'''
-                <iframe
-                    src="data:application/pdf;base64,{pdf_base64}"
-                    width="100%"
-                    height="700"
-                    style="border:none;">
-                </iframe>
-                ''',
-                unsafe_allow_html=True
-            )
-        else:
+        if not pdf_path:
             st.warning("PDF not found for this document.")
 
 st.divider()
+
+st.subheader("Documents")
+st.caption("Newest first")
 
 for f in files:
     col1, col2 = st.columns([6, 1])
