@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
 RAW_DIR = BASE_DIR / "data" / "raw"
 
+
 def parse_date_from_filename(filename):
     match = re.match(r"^(\d{4}-\d{2}-\d{2})__", filename)
     if match:
@@ -21,8 +22,10 @@ def parse_date_from_filename(filename):
             return None
     return None
 
+
 def humanize_slug(slug):
     return slug.replace("-", " ").title()
+
 
 def clean_display_title(parsed_file):
     stem = parsed_file.stem
@@ -39,6 +42,7 @@ def clean_display_title(parsed_file):
         suffix = f" ({parts[2]})"
 
     return f"{date_part} | {humanize_slug(slug_part)}{suffix}"
+
 
 def parsed_to_possible_pdf_names(parsed_file):
     stem = parsed_file.stem
@@ -65,28 +69,36 @@ def parsed_to_possible_pdf_names(parsed_file):
 
     return candidates
 
+
 def find_matching_pdf(parsed_file):
     candidates = parsed_to_possible_pdf_names(parsed_file)
+
     for name in candidates:
         candidate = RAW_DIR / name
         if candidate.exists():
             return candidate
+
     return None
+
 
 def load_text_file(path):
     return path.read_text(encoding="utf-8", errors="ignore")
 
+
 def file_to_base64(path):
     return base64.b64encode(path.read_bytes()).decode("utf-8")
+
 
 def make_text_data_url(text):
     encoded = base64.b64encode(text.encode("utf-8")).decode("utf-8")
     return f"data:text/plain;base64,{encoded}"
 
+
 def get_preview(text, max_chars=3000):
     if len(text) <= max_chars:
         return text
     return text[:max_chars] + "\n\n[Preview truncated...]"
+
 
 def list_parsed_files():
     if not PARSED_DIR.exists():
@@ -99,6 +111,7 @@ def list_parsed_files():
         return (dt or datetime.min, path.name)
 
     return sorted(files, key=sort_key, reverse=True)
+
 
 def file_matches_search(path, query):
     if not query.strip():
@@ -114,11 +127,15 @@ def file_matches_search(path, query):
     except:
         return False
 
+
 def highlight_text(text, query):
     escaped = html.escape(text)
 
     if not query.strip():
-        return f"<pre>{escaped}</pre>"
+        return (
+            "<pre style='white-space: pre-wrap; word-wrap: break-word;'>"
+            f"{escaped}</pre>"
+        )
 
     pattern = re.compile(re.escape(query), re.IGNORECASE)
 
@@ -126,10 +143,15 @@ def highlight_text(text, query):
         return f"<mark>{match.group(0)}</mark>"
 
     highlighted = pattern.sub(replacer, escaped)
-    return f"<pre>{highlighted}</pre>"
+    return (
+        "<pre style='white-space: pre-wrap; word-wrap: break-word;'>"
+        f"{highlighted}</pre>"
+    )
+
 
 if "selected_file" not in st.session_state:
     st.session_state.selected_file = None
+
 
 st.title("County Research Agent v1")
 st.caption("Alpha v3 public viewer")
@@ -148,23 +170,54 @@ if st.session_state.selected_file:
         text = load_text_file(selected_path)
         pdf_path = find_matching_pdf(selected_path)
 
-        st.markdown(f'<a href="{make_text_data_url(text)}" target="_blank">Open text in new tab</a>', unsafe_allow_html=True)
+        col1, col2, col3 = st.columns(3)
 
-        st.download_button("Download text", text, file_name=selected_path.name)
+        with col1:
+            st.markdown(
+                f'<a href="{make_text_data_url(text)}" target="_blank">Open text in new tab</a>',
+                unsafe_allow_html=True
+            )
 
-        if pdf_path:
-            st.download_button("Download PDF", pdf_path.read_bytes(), file_name=pdf_path.name)
+        with col2:
+            st.download_button(
+                "Download text",
+                text,
+                file_name=selected_path.name
+            )
 
-        st.markdown(highlight_text(get_preview(text), search_query), unsafe_allow_html=True)
+        with col3:
+            if pdf_path:
+                st.download_button(
+                    "Download PDF",
+                    pdf_path.read_bytes(),
+                    file_name=pdf_path.name
+                )
+
+        st.markdown(
+            highlight_text(get_preview(text, max_chars=5000), search_query),
+            unsafe_allow_html=True
+        )
 
         if pdf_path:
             pdf_base64 = file_to_base64(pdf_path)
-            st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_base64}" width="100%" height="600"></iframe>', unsafe_allow_html=True)
+            st.markdown(
+                f'''
+                <iframe
+                    src="data:application/pdf;base64,{pdf_base64}"
+                    width="100%"
+                    height="700"
+                    style="border:none;">
+                </iframe>
+                ''',
+                unsafe_allow_html=True
+            )
+        else:
+            st.warning("PDF not found for this document.")
 
 st.divider()
 
 for f in files:
-    col1, col2 = st.columns([6,1])
+    col1, col2 = st.columns([6, 1])
 
     with col1:
         st.write(clean_display_title(f))
