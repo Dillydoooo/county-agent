@@ -1,0 +1,55 @@
+Parsed: data/parsed\03-03-2026 Admin Agenda.txt
+Parsed: data/parsed\03-03-2026.txt
+Parsed: data/parsed\03-06-2026 Special Meeting of the Josephine County Board of Commissioners Minutes.txt
+Parsed: data/parsed\03-10-2026 Admin Agenda.txt
+Parsed: data/parsed\03-10-2026.txt
+Parsed: data/parsed\03-11-2026 Admin Agenda3.txt
+Parsed: data/parsed\03-11-2026 Minutes.txt
+Parsed: data/parsed\03-17-2026 Admin Agenda.txt
+Parsed: data/parsed\03-17-2026.txt
+Parsed: data/parsed\03-19-2026 Budget Workshop1.txt
+Parsed: data/parsed\03-24-2026 Admin Agenda.txt
+Parsed: data/parsed\03-24-2026 Admin.txt
+Parsed: data/parsed\03-24-2026 City-County.txt
+Parsed: data/parsed\03-24-2026 KAJO.txt
+Parsed: data/parsed\03-25-2026 Budget Workshop.txt
+Parsed: data/parsed\03-31-2026 Admin Agenda1.txt
+Parsed: data/parsed\03-31-2026 Admin.txt
+Parsed: data/parsed\03-31-2026 General Discussion.txt
+Parsed: data/parsed\03.12.2026 Budget Committee Meeting Minutes.txt
+Parsed: data/parsed\03.19.2026 Minutes.txt
+Parsed: data/parsed\04-01-2026 WBS.txt
+Parsed: data/parsed\04-02-2026 Admin Agenda1.txt
+Parsed: data/parsed\04-02-2026 Legal Counsel Update.txt
+Parsed: data/parsed\04-07-2026 Admin Agenda.txt
+Parsed: data/parsed\04-07-2026 Budget Workshop.txt
+Parsed: data/parsed\04-08-2026 General Discussion.txt
+Parsed: data/parsed\04-09-2026 Executive Session.txt
+Parsed: data/parsed\04-13-2026 Legal Counsel Update.txt
+Parsed: data/parsed\04-2-2026 Admin.txt
+Parsed: data/parsed\3-06-2026 Special Meeting.txt
+Parsed: data/parsed\3-11-2026 Weekly Business Session.txt
+Parsed: data/parsed\3-18-2026 Weekly Business Session.txt
+Parsed: data/parsed\3-24-26 City County.txt
+Parsed: data/parsed\3-25-2026 Weekly Business Session.txt
+Parsed: data/parsed\3-25-26 WBS Minutes.txt
+Parsed: data/parsed\3-31-2026 General Discussion.txt
+Parsed: data/parsed\3-4-2026 Weekly Business Session.txt
+Parsed: data/parsed\3-9-2026 Agenda LAND USE APPEAL HEARING.txt
+Parsed: data/parsed\3.11.26 WBS PACKET.txt
+Parsed: data/parsed\3.11.26 Weekly Business Session Minutes.txt
+Parsed: data/parsed\3.4.26 WBS Minutes.txt
+Parsed: data/parsed\4-1-2026 Weekly Business Session.txt
+Parsed: data/parsed\4-1-26 WBS PACKET.txt
+Parsed: data/parsed\4-13-2026 Agenda LAND USE HEARING.txt
+Parsed: data/parsed\4-2-2026 Legal Update.txt
+Parsed: data/parsed\4-8-2026 WBS Packet.txt
+Parsed: data/parsed\4-8-2026 Weekly Business Session.txt
+Parsed: data/parsed\Appeal Staff Report.txt
+Parsed: data/parsed\Land Use Hearing 3.9.26.txt
+Parsed: data/parsed\Rent Anne Basker Auditorium Cave Junction Building.txt
+Parsed: data/parsed\Staff Report & Exhibits A-I  Land Use Hearing Packet.txt
+Parsed: data/parsed\Starting Your Business in Josephine County.txt
+Parsed: data/parsed\Supplemental Budget Agenda2.txt
+Parsed: data/parsed\WBS Minutes 3-18-26.txt
+Parsed: data/parsed\WBS Packet 3.25.26.txt
