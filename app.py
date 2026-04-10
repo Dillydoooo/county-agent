@@ -13,7 +13,6 @@ BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
 RAW_DIR = BASE_DIR / "data" / "raw"
 
-# CHANGE THESE ONLY IF YOUR GITHUB REPO CHANGES
 GITHUB_OWNER = "Dillydoooo"
 GITHUB_REPO = "county-agent"
 GITHUB_BRANCH = "main"
@@ -89,11 +88,6 @@ def find_matching_pdf(parsed_file):
 
 def load_text_file(path):
     return path.read_text(encoding="utf-8", errors="ignore")
-
-
-def make_text_data_url(text):
-    encoded = base64.b64encode(text.encode("utf-8")).decode("utf-8")
-    return f"data:text/plain;base64,{encoded}"
 
 
 def get_preview(text, max_chars=3000):
@@ -183,29 +177,35 @@ if st.session_state.selected_file:
         text = load_text_file(selected_path)
         pdf_path = find_matching_pdf(selected_path)
 
+        text_bytes = text.encode("utf-8")
+        pdf_bytes = pdf_path.read_bytes() if pdf_path else None
+
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
+            text_b64 = base64.b64encode(text_bytes).decode("utf-8")
             st.markdown(
-                f'<a href="{make_text_data_url(text)}" target="_blank">Open text in new tab</a>',
+                f'<a href="data:text/plain;charset=utf-8;base64,{text_b64}" target="_blank">Open text in new tab</a>',
                 unsafe_allow_html=True
             )
 
         with col2:
             st.download_button(
-                "Download text",
-                text,
+                label="Download text",
+                data=text_bytes,
                 file_name=selected_path.name,
-                mime="text/plain"
+                mime="text/plain",
+                key=f"download_text_{selected_path.name}"
             )
 
         with col3:
-            if pdf_path:
+            if pdf_path and pdf_bytes:
                 st.download_button(
-                    "Download PDF",
-                    pdf_path.read_bytes(),
+                    label="Download PDF",
+                    data=pdf_bytes,
                     file_name=pdf_path.name,
-                    mime="application/pdf"
+                    mime="application/pdf",
+                    key=f"download_pdf_{selected_path.name}"
                 )
 
         with col4:
@@ -233,6 +233,6 @@ for f in files:
         st.write(clean_display_title(f))
 
     with col2:
-        if st.button("Open", key=f.name):
+        if st.button("Open", key=f"open_{f.name}"):
             st.session_state.selected_file = str(f)
             st.rerun()
