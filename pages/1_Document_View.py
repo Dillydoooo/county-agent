@@ -1,10 +1,9 @@
 import base64
 import html
 import re
-from pathlib import Path
 
-import streamlit as st
 import fitz  # PyMuPDF
+import streamlit as st
 
 from src.utils.doc_helpers import (
     parsed_file_from_stem,
@@ -189,9 +188,8 @@ def get_preview(text: str, max_chars: int = 5000):
 @st.cache_data
 def render_pdf_pages(pdf_path_str: str, zoom: float = 1.2):
     pages = []
-    pdf_path = Path(pdf_path_str)
 
-    with fitz.open(pdf_path) as doc:
+    with fitz.open(pdf_path_str) as doc:
         for page in doc:
             mat = fitz.Matrix(zoom, zoom)
             pix = page.get_pixmap(matrix=mat, alpha=False)
