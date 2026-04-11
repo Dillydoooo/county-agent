@@ -1,104 +1,17 @@
-import base64
 import html
 import re
 from pathlib import Path
 from datetime import datetime
 
 import streamlit as st
-import streamlit.components.v1 as components
 
-st.set_page_config(page_title="County Agent Alpha v7.1", layout="wide")
+from src.utils.doc_helpers import get_all_parsed_files
+
+st.set_page_config(page_title="County Agent Alpha", layout="wide")
 
 BASE_DIR = Path(__file__).resolve().parent
-PARSED_DIR = BASE_DIR / "data" / "parsed"
-RAW_DIR = BASE_DIR / "data" / "raw"
 ASSETS_DIR = BASE_DIR / "assets"
 
-
-# ---------------------------------------------------------
-# BROWSER HISTORY SUPPORT
-# ---------------------------------------------------------
-def install_history_reload_bridge():
-    components.html(
-        """
-        <script>
-        (function () {
-            const w = window.parent;
-            if (!w.__county_agent_popstate_bridge_installed__) {
-                w.__county_agent_popstate_bridge_installed__ = true;
-                w.addEventListener("popstate", function () {
-                    w.location.reload();
-                });
-            }
-        })();
-        </script>
-        """,
-        height=0,
-        width=0,
-    )
-
-
-install_history_reload_bridge()
-
-
-# ---------------------------------------------------------
-# URL / STATE HELPERS
-# ---------------------------------------------------------
-def get_query_params_dict():
-    try:
-        return dict(st.query_params)
-    except Exception:
-        return {}
-
-
-def get_selected_file_from_url():
-    params = get_query_params_dict()
-    selected = params.get("doc", None)
-
-    if not selected:
-        return None
-
-    candidate = PARSED_DIR / selected
-    if candidate.exists():
-        return str(candidate)
-
-    return None
-
-
-def set_selected_file_in_url(path_obj):
-    try:
-        st.query_params["doc"] = path_obj.name
-    except Exception:
-        pass
-
-
-def clear_selected_file_in_url():
-    try:
-        if "doc" in st.query_params:
-            del st.query_params["doc"]
-    except Exception:
-        pass
-
-
-# ---------------------------------------------------------
-# SESSION STATE
-# ---------------------------------------------------------
-if "selected_file" not in st.session_state:
-    st.session_state.selected_file = get_selected_file_from_url()
-
-if "view_mode" not in st.session_state:
-    st.session_state.view_mode = "Stacked (better for mobile)"
-
-
-# Keep session state synced to URL on every run
-url_selected_file = get_selected_file_from_url()
-if url_selected_file != st.session_state.selected_file:
-    st.session_state.selected_file = url_selected_file
-
-
-# ---------------------------------------------------------
-# STYLES
-# ---------------------------------------------------------
 st.markdown(
     """
     <style>
@@ -152,44 +65,12 @@ st.markdown(
         font-weight: 700;
         line-height: 1.2;
     }
-
-    .helper-text {
-        font-size: 0.92rem;
-        color: #475569;
-    }
-
-    div.stButton > button {
-        min-height: 2.7rem;
-        font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-        .doc-title {
-            font-size: 1.1rem;
-        }
-
-        .tag-pill, .tag-more {
-            font-size: 0.88rem;
-            padding: 0.22rem 0.58rem;
-        }
-
-        .helper-text {
-            font-size: 0.96rem;
-        }
-
-        div.stButton > button {
-            min-height: 3rem;
-        }
-    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
 
-# ---------------------------------------------------------
-# TAGGING / SUMMARY
-# ---------------------------------------------------------
 @st.cache_data
 def extract_tags(text):
     tags = set()
@@ -219,101 +100,11 @@ def extract_tags(text):
     return sorted(tags)
 
 
-def generate_summary(text):
-    if not text:
-        return {
-            "summary": ["No summary available."],
-            "date": "Unknown",
-            "type": "Unknown",
-            "tags": []
-        }
-
-    lines = text.split("\n")
-    clean_lines = [line.strip() for line in lines if line.strip()]
-
-    date_match = re.search(
-        r"(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}",
-        text
-    )
-    date_str = date_match.group(0) if date_match else "Date not detected"
-
-    lower_text = text.lower()
-    doc_type = "General Document"
-    if "legal counsel update" in lower_text:
-        doc_type = "Legal Counsel Update"
-    elif "agenda" in lower_text:
-        doc_type = "Agenda"
-    elif "minutes" in lower_text:
-        doc_type = "Meeting Minutes"
-    elif "packet" in lower_text:
-        doc_type = "Meeting Packet"
-
-    skip_phrases = [
-        "accommodations",
-        "hearing-impaired",
-        "tdd",
-        "notify",
-        "48-hours",
-        "livestream",
-        "youtube",
-        "board of commissioners",
-        "ron smith",
-        "colene martin",
-        "gary richardson",
-    ]
-
-    agenda = []
-    sub_items = []
-
-    for line in clean_lines:
-        lower = line.lower()
-
-        if any(p in lower for p in skip_phrases):
-            continue
-
-        if re.match(r"^\d+\.", line):
-            agenda.append(line)
-        elif re.match(r"^[a-zA-Z]\.", line):
-            sub_items.append(line)
-
-    summary_output = []
-
-    for item in agenda:
-        label = re.sub(r"^\d+\.\s*", "", item)
-
-        if "executive session" in label.lower():
-            summary_output.append(f"• {label}")
-
-            for sub in sub_items:
-                clean_sub = re.sub(r"^[a-zA-Z]\.\s*", "", sub)
-                clean_sub = clean_sub.split(" – ORS")[0].strip()
-                summary_output.append(f"  - {clean_sub}")
-
-            continue
-
-        if any(k in label.lower() for k in ["approval", "other", "announcements"]):
-            summary_output.append(f"• {label}")
-
-    if not summary_output:
-        fallback = []
-        for line in clean_lines:
-            if len(line) > 40 and not line.lower().startswith("http"):
-                fallback.append(f"• {line}")
-            if len(fallback) >= 3:
-                break
-        summary_output = fallback or ["• Summary could not be generated."]
-
-    return {
-        "summary": summary_output,
-        "date": date_str,
-        "type": doc_type,
-        "tags": extract_tags(text)
-    }
+@st.cache_data
+def load_text_file(path_str):
+    return Path(path_str).read_text(encoding="utf-8", errors="ignore")
 
 
-# ---------------------------------------------------------
-# FILE HELPERS
-# ---------------------------------------------------------
 def parse_date_from_filename(filename):
     match = re.match(r"^(\d{4}-\d{2}-\d{2})__", filename)
     if match:
@@ -345,60 +136,8 @@ def clean_display_title(parsed_file):
     return f"{date_part} | {humanize_slug(slug_part)}{suffix}"
 
 
-def parsed_to_possible_pdf_names(parsed_file):
-    stem = parsed_file.stem
-    parts = stem.split("__")
-
-    if len(parts) < 2:
-        return []
-
-    date_part = parts[0]
-    slug_part = parts[1]
-
-    try:
-        dt = datetime.strptime(date_part, "%Y-%m-%d")
-        mmddyyyy = dt.strftime("%m-%d-%Y")
-    except Exception:
-        return []
-
-    candidates = []
-
-    if slug_part == "document":
-        candidates.append(f"{mmddyyyy}.pdf")
-    else:
-        candidates.append(f"{mmddyyyy} {humanize_slug(slug_part)}.pdf")
-
-    return candidates
-
-
-def find_matching_pdf(parsed_file):
-    candidates = parsed_to_possible_pdf_names(parsed_file)
-
-    for name in candidates:
-        candidate = RAW_DIR / name
-        if candidate.exists():
-            return candidate
-
-    return None
-
-
-@st.cache_data
-def load_text_file(path_str):
-    path = Path(path_str)
-    return path.read_text(encoding="utf-8", errors="ignore")
-
-
-def get_preview(text, max_chars=5000):
-    if len(text) <= max_chars:
-        return text
-    return text[:max_chars] + "\n\n[Preview truncated...]"
-
-
 def list_parsed_files():
-    if not PARSED_DIR.exists():
-        return []
-
-    files = list(PARSED_DIR.glob("*.txt"))
+    files = get_all_parsed_files()
 
     def sort_key(path):
         dt = parse_date_from_filename(path.name)
@@ -424,8 +163,7 @@ def file_matches_search(path, query):
 
 @st.cache_data
 def get_file_tags(path_str):
-    text = load_text_file(path_str)
-    return extract_tags(text)
+    return extract_tags(load_text_file(path_str))
 
 
 def file_matches_tags(path, selected_tags):
@@ -443,9 +181,7 @@ def display_tag_pills(tags, max_visible=None):
     visible_tags = tags if max_visible is None else tags[:max_visible]
     extra_count = 0 if max_visible is None else max(0, len(tags) - max_visible)
 
-    pills = "".join(
-        [f"<span class='tag-pill'>{html.escape(tag)}</span>" for tag in visible_tags]
-    )
+    pills = "".join([f"<span class='tag-pill'>{html.escape(tag)}</span>" for tag in visible_tags])
 
     if extra_count > 0:
         pills += f"<span class='tag-more'>+{extra_count} more</span>"
@@ -453,212 +189,10 @@ def display_tag_pills(tags, max_visible=None):
     return f"<div class='doc-tags'>{pills}</div>"
 
 
-def highlight_text(text, query):
-    escaped = html.escape(text)
-
-    if not query.strip():
-        return (
-            "<pre style='white-space: pre-wrap; word-wrap: break-word; "
-            "font-family: sans-serif; font-size: 15px; line-height: 1.6;'>"
-            f"{escaped}</pre>"
-        )
-
-    pattern = re.compile(re.escape(query), re.IGNORECASE)
-
-    def replacer(match):
-        return f"<mark>{match.group(0)}</mark>"
-
-    highlighted = pattern.sub(replacer, escaped)
-    return (
-        "<pre style='white-space: pre-wrap; word-wrap: break-word; "
-        "font-family: sans-serif; font-size: 15px; line-height: 1.6;'>"
-        f"{highlighted}</pre>"
-    )
-
-
-def select_document(path_obj):
-    st.session_state.selected_file = str(path_obj)
-    set_selected_file_in_url(path_obj)
-
-
-def clear_selected_document():
-    st.session_state.selected_file = None
-    clear_selected_file_in_url()
-
-
-# ---------------------------------------------------------
-# RENDERERS
-# ---------------------------------------------------------
-def render_document_list(files, stacked_mode=False):
-    st.subheader("Documents")
-    st.caption("Newest first")
-
-    list_container = st.container(border=True)
-
-    with list_container:
-        if not files:
-            st.write("No documents found.")
-            return
-
-        for f in files:
-            is_selected = str(f) == st.session_state.selected_file
-            title = clean_display_title(f)
-            row_tags = get_file_tags(str(f))
-
-            row_box = st.container(border=True)
-
-            with row_box:
-                if stacked_mode:
-                    if is_selected:
-                        st.markdown(
-                            "<div class='doc-selected'>Selected</div>",
-                            unsafe_allow_html=True
-                        )
-
-                    st.markdown(
-                        f"<div class='doc-title'>{html.escape(title)}</div>",
-                        unsafe_allow_html=True
-                    )
-
-                    if row_tags:
-                        st.markdown(
-                            display_tag_pills(row_tags, max_visible=3),
-                            unsafe_allow_html=True
-                        )
-
-                    if st.button(
-                        "View document",
-                        key=f"open_mobile_{f.name}",
-                        use_container_width=True
-                    ):
-                        select_document(f)
-
-                else:
-                    row_col1, row_col2 = st.columns([4.0, 2.0], gap="medium")
-
-                    with row_col1:
-                        if is_selected:
-                            st.markdown(
-                                "<div class='doc-selected'>Selected</div>",
-                                unsafe_allow_html=True
-                            )
-
-                        st.markdown(
-                            f"<div class='doc-title'>{html.escape(title)}</div>",
-                            unsafe_allow_html=True
-                        )
-
-                        if row_tags:
-                            st.markdown(
-                                display_tag_pills(row_tags, max_visible=3),
-                                unsafe_allow_html=True
-                            )
-
-                    with row_col2:
-                        st.write("")
-                        if st.button(
-                            "View",
-                            key=f"open_desktop_{f.name}",
-                            use_container_width=True
-                        ):
-                            select_document(f)
-
-
-def render_selected_document(search_query):
-    if not st.session_state.selected_file:
-        st.info("Select a document from the list.")
-        return
-
-    selected_path = Path(st.session_state.selected_file)
-
-    if not selected_path.exists():
-        st.warning("Selected document no longer exists.")
-        return
-
-    top_col1, top_col2 = st.columns([1.2, 4.8])
-
-    with top_col1:
-        if st.button("Back to document list", key="back_to_list", use_container_width=True):
-            clear_selected_document()
-
-    with top_col2:
-        st.subheader(clean_display_title(selected_path))
-
-    text = load_text_file(str(selected_path))
-    pdf_path = find_matching_pdf(selected_path)
-    summary_data = generate_summary(text)
-
-    st.markdown("### Summary")
-    st.markdown(f"**Type:** {summary_data['type']}")
-    st.markdown(f"**Date:** {summary_data['date']}")
-
-    if summary_data["tags"]:
-        st.markdown("**Tags:**", help="Topics detected in this document.")
-        st.markdown(
-            display_tag_pills(summary_data["tags"]),
-            unsafe_allow_html=True
-        )
-
-    st.markdown("---")
-
-    for line in summary_data["summary"]:
-        st.write(line)
-
-    st.markdown("---")
-
-    text_bytes = text.encode("utf-8")
-    pdf_bytes = pdf_path.read_bytes() if pdf_path else None
-
-    action_col1, action_col2 = st.columns(2)
-    action_col3, action_col4 = st.columns(2)
-
-    with action_col1:
-        text_b64 = base64.b64encode(text_bytes).decode("utf-8")
-        st.markdown(
-            f'<a href="data:text/plain;charset=utf-8;base64,{text_b64}" target="_blank" rel="noopener noreferrer">Open text in new tab</a>',
-            unsafe_allow_html=True
-        )
-
-    with action_col2:
-        st.download_button(
-            label="Download text",
-            data=text_bytes,
-            file_name=selected_path.name,
-            mime="text/plain",
-            key=f"download_text_{selected_path.name}"
-        )
-
-    with action_col3:
-        if pdf_path and pdf_bytes:
-            st.download_button(
-                label="Download PDF",
-                data=pdf_bytes,
-                file_name=pdf_path.name,
-                mime="application/pdf",
-                key=f"download_pdf_{selected_path.name}"
-            )
-
-    with action_col4:
-        if pdf_path:
-            st.caption(f"PDF: {pdf_path.name}")
-        else:
-            st.caption("PDF not found")
-
-    st.markdown(
-        highlight_text(get_preview(text, max_chars=5000), search_query),
-        unsafe_allow_html=True
-    )
-
-
-# ---------------------------------------------------------
-# HEADER
-# ---------------------------------------------------------
 header_image_path = ASSETS_DIR / "rogue-river.jpg"
 
 if header_image_path.exists():
     st.image(str(header_image_path), width=450)
-else:
-    st.info("Header image not found. Add assets/rogue-river.jpg")
 
 st.title("County Research Agent v1")
 st.caption("Searchable public records for Josephine County, Oregon")
@@ -673,54 +207,62 @@ This tool is for research and public access only.
 """
 )
 
-
-# ---------------------------------------------------------
-# FILTERS
-# ---------------------------------------------------------
 search_query = st.text_input("Search documents")
 
 view_mode = st.radio(
     "View mode",
     options=["Side by side", "Stacked (better for mobile)"],
     horizontal=True,
-    key="view_mode",
-    help="Use stacked mode on phones or when you want larger reading areas."
 )
 
 all_files = list_parsed_files()
 search_filtered_files = [f for f in all_files if file_matches_search(f, search_query)]
 
 available_tags = sorted(
-    {
-        tag
-        for f in search_filtered_files
-        for tag in get_file_tags(str(f))
-    }
+    {tag for f in search_filtered_files for tag in get_file_tags(str(f))}
 )
 
 selected_tags = st.multiselect(
     "Filter by tags",
     options=available_tags,
     default=[],
-    help="Show documents that match any selected tag."
 )
 
 files = [f for f in search_filtered_files if file_matches_tags(f, selected_tags)]
 
+st.subheader("Documents")
+st.caption("Newest first")
 
-# ---------------------------------------------------------
-# MAIN LAYOUT
-# ---------------------------------------------------------
-if view_mode == "Side by side":
-    left_col, right_col = st.columns([1.45, 2.1], gap="large")
+list_container = st.container(height=780, border=True)
 
-    with left_col:
-        render_document_list(files, stacked_mode=False)
+with list_container:
+    if not files:
+        st.write("No documents found.")
+    else:
+        for f in files:
+            title = clean_display_title(f)
+            row_tags = get_file_tags(str(f))
 
-    with right_col:
-        render_selected_document(search_query)
+            row_box = st.container(border=True)
 
-else:
-    render_selected_document(search_query)
-    st.markdown("---")
-    render_document_list(files, stacked_mode=True)
+            with row_box:
+                row_col1, row_col2 = st.columns([4.4, 1.6], gap="medium")
+
+                with row_col1:
+                    st.markdown(
+                        f"<div class='doc-title'>{html.escape(title)}</div>",
+                        unsafe_allow_html=True
+                    )
+
+                    if row_tags:
+                        st.markdown(
+                            display_tag_pills(row_tags, max_visible=3),
+                            unsafe_allow_html=True
+                        )
+
+                with row_col2:
+                    st.write("")
+                    if st.button("View", key=f"open_{f.name}", use_container_width=True):
+                        st.session_state["doc_id"] = f.stem
+                        st.session_state["search_query"] = search_query
+                        st.switch_page("pages/1_Document_View.py")
