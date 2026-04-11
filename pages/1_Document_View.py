@@ -202,16 +202,14 @@ doc_id = st.session_state.get("doc_id")
 
 if not doc_id:
     st.error("No document selected.")
-    if st.button("Back"):
-        st.switch_page("app.py")
+    st.page_link("app.py", label="← Back to list")
     st.stop()
 
 parsed_path = parsed_file_from_stem(doc_id)
 
 if not parsed_path:
     st.error("File not found.")
-    if st.button("Back"):
-        st.switch_page("app.py")
+    st.page_link("app.py", label="← Back to list")
     st.stop()
 
 text = read_text_file(parsed_path)
@@ -221,8 +219,7 @@ summary_data = generate_summary(text)
 top1, top2 = st.columns([1, 5])
 
 with top1:
-    if st.button("← Back to list", use_container_width=True):
-        st.switch_page("app.py")
+    st.page_link("app.py", label="← Back to list", use_container_width=True)
 
 with top2:
     st.subheader(parsed_path.name)
