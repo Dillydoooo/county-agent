@@ -7,7 +7,7 @@ from datetime import datetime
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="County Agent Alpha v7.0", layout="wide")
+st.set_page_config(page_title="County Agent Alpha v7.1", layout="wide")
 
 BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
@@ -532,7 +532,6 @@ def render_document_list(files, stacked_mode=False):
                         use_container_width=True
                     ):
                         select_document(f)
-                        st.rerun()
 
                 else:
                     row_col1, row_col2 = st.columns([4.0, 2.0], gap="medium")
@@ -563,7 +562,6 @@ def render_document_list(files, stacked_mode=False):
                             use_container_width=True
                         ):
                             select_document(f)
-                            st.rerun()
 
 
 def render_selected_document(search_query):
@@ -582,7 +580,6 @@ def render_selected_document(search_query):
     with top_col1:
         if st.button("Back to document list", key="back_to_list", use_container_width=True):
             clear_selected_document()
-            st.rerun()
 
     with top_col2:
         st.subheader(clean_display_title(selected_path))
