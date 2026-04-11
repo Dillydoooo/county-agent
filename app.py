@@ -3,30 +3,97 @@ import html
 import re
 from pathlib import Path
 from datetime import datetime
-from urllib.parse import quote
 
 import streamlit as st
+import streamlit.components.v1 as components
 
-st.set_page_config(page_title="County Agent Alpha v6.5", layout="wide")
+st.set_page_config(page_title="County Agent Alpha v7.0", layout="wide")
 
 BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
 RAW_DIR = BASE_DIR / "data" / "raw"
 ASSETS_DIR = BASE_DIR / "assets"
 
-GITHUB_OWNER = "Dillydoooo"
-GITHUB_REPO = "county-agent"
-GITHUB_BRANCH = "main"
+
+# ---------------------------------------------------------
+# BROWSER HISTORY SUPPORT
+# ---------------------------------------------------------
+def install_history_reload_bridge():
+    components.html(
+        """
+        <script>
+        (function () {
+            const w = window.parent;
+            if (!w.__county_agent_popstate_bridge_installed__) {
+                w.__county_agent_popstate_bridge_installed__ = true;
+                w.addEventListener("popstate", function () {
+                    w.location.reload();
+                });
+            }
+        })();
+        </script>
+        """,
+        height=0,
+        width=0,
+    )
+
+
+install_history_reload_bridge()
+
+
+# ---------------------------------------------------------
+# URL / STATE HELPERS
+# ---------------------------------------------------------
+def get_query_params_dict():
+    try:
+        return dict(st.query_params)
+    except Exception:
+        return {}
+
+
+def get_selected_file_from_url():
+    params = get_query_params_dict()
+    selected = params.get("doc", None)
+
+    if not selected:
+        return None
+
+    candidate = PARSED_DIR / selected
+    if candidate.exists():
+        return str(candidate)
+
+    return None
+
+
+def set_selected_file_in_url(path_obj):
+    try:
+        st.query_params["doc"] = path_obj.name
+    except Exception:
+        pass
+
+
+def clear_selected_file_in_url():
+    try:
+        if "doc" in st.query_params:
+            del st.query_params["doc"]
+    except Exception:
+        pass
 
 
 # ---------------------------------------------------------
 # SESSION STATE
 # ---------------------------------------------------------
 if "selected_file" not in st.session_state:
-    st.session_state.selected_file = None
+    st.session_state.selected_file = get_selected_file_from_url()
 
 if "view_mode" not in st.session_state:
     st.session_state.view_mode = "Stacked (better for mobile)"
+
+
+# Keep session state synced to URL on every run
+url_selected_file = get_selected_file_from_url()
+if url_selected_file != st.session_state.selected_file:
+    st.session_state.selected_file = url_selected_file
 
 
 # ---------------------------------------------------------
@@ -92,7 +159,7 @@ st.markdown(
     }
 
     div.stButton > button {
-        min-height: 2.6rem;
+        min-height: 2.7rem;
         font-weight: 600;
     }
 
@@ -409,14 +476,14 @@ def highlight_text(text, query):
     )
 
 
-def github_blob_url_for_pdf(pdf_path):
-    relative_path = pdf_path.relative_to(BASE_DIR).as_posix()
-    encoded_path = quote(relative_path, safe="/")
-    return f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/blob/{GITHUB_BRANCH}/{encoded_path}"
-
-
 def select_document(path_obj):
     st.session_state.selected_file = str(path_obj)
+    set_selected_file_in_url(path_obj)
+
+
+def clear_selected_document():
+    st.session_state.selected_file = None
+    clear_selected_file_in_url()
 
 
 # ---------------------------------------------------------
@@ -510,7 +577,15 @@ def render_selected_document(search_query):
         st.warning("Selected document no longer exists.")
         return
 
-    st.subheader(clean_display_title(selected_path))
+    top_col1, top_col2 = st.columns([1.2, 4.8])
+
+    with top_col1:
+        if st.button("Back to document list", key="back_to_list", use_container_width=True):
+            clear_selected_document()
+            st.rerun()
+
+    with top_col2:
+        st.subheader(clean_display_title(selected_path))
 
     text = load_text_file(str(selected_path))
     pdf_path = find_matching_pdf(selected_path)
@@ -543,7 +618,7 @@ def render_selected_document(search_query):
     with action_col1:
         text_b64 = base64.b64encode(text_bytes).decode("utf-8")
         st.markdown(
-            f'<a href="data:text/plain;charset=utf-8;base64,{text_b64}" target="_blank">Open text in new tab</a>',
+            f'<a href="data:text/plain;charset=utf-8;base64,{text_b64}" target="_blank" rel="noopener noreferrer">Open text in new tab</a>',
             unsafe_allow_html=True
         )
 
@@ -568,16 +643,14 @@ def render_selected_document(search_query):
 
     with action_col4:
         if pdf_path:
-            pdf_url = github_blob_url_for_pdf(pdf_path)
-            st.link_button("View Original PDF", pdf_url)
+            st.caption(f"PDF: {pdf_path.name}")
+        else:
+            st.caption("PDF not found")
 
     st.markdown(
         highlight_text(get_preview(text, max_chars=5000), search_query),
         unsafe_allow_html=True
     )
-
-    if not pdf_path:
-        st.warning("PDF not found for this document.")
 
 
 # ---------------------------------------------------------
