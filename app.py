@@ -426,7 +426,7 @@ def render_document_list(files, stacked_mode=False):
     st.subheader("Documents")
     st.caption("Newest first")
 
-    list_container = st.container(height=780, border=True)
+    list_container = st.container(border=True)
 
     with list_container:
         if not files:
