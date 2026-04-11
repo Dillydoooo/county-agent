@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 import streamlit as st
 
-st.set_page_config(page_title="County Agent Alpha v6.4", layout="wide")
+st.set_page_config(page_title="County Agent Alpha v6.5", layout="wide")
 
 BASE_DIR = Path(__file__).resolve().parent
 PARSED_DIR = BASE_DIR / "data" / "parsed"
@@ -19,6 +19,19 @@ GITHUB_REPO = "county-agent"
 GITHUB_BRANCH = "main"
 
 
+# ---------------------------------------------------------
+# SESSION STATE
+# ---------------------------------------------------------
+if "selected_file" not in st.session_state:
+    st.session_state.selected_file = None
+
+if "view_mode" not in st.session_state:
+    st.session_state.view_mode = "Stacked (better for mobile)"
+
+
+# ---------------------------------------------------------
+# STYLES
+# ---------------------------------------------------------
 st.markdown(
     """
     <style>
@@ -78,16 +91,27 @@ st.markdown(
         color: #475569;
     }
 
+    div.stButton > button {
+        min-height: 2.6rem;
+        font-weight: 600;
+    }
+
     @media (max-width: 900px) {
         .doc-title {
             font-size: 1.1rem;
         }
+
         .tag-pill, .tag-more {
             font-size: 0.88rem;
             padding: 0.22rem 0.58rem;
         }
+
         .helper-text {
             font-size: 0.96rem;
+        }
+
+        div.stButton > button {
+            min-height: 3rem;
         }
     }
     </style>
@@ -96,6 +120,9 @@ st.markdown(
 )
 
 
+# ---------------------------------------------------------
+# TAGGING / SUMMARY
+# ---------------------------------------------------------
 @st.cache_data
 def extract_tags(text):
     tags = set()
@@ -217,6 +244,9 @@ def generate_summary(text):
     }
 
 
+# ---------------------------------------------------------
+# FILE HELPERS
+# ---------------------------------------------------------
 def parse_date_from_filename(filename):
     match = re.match(r"^(\d{4}-\d{2}-\d{2})__", filename)
     if match:
@@ -346,7 +376,9 @@ def display_tag_pills(tags, max_visible=None):
     visible_tags = tags if max_visible is None else tags[:max_visible]
     extra_count = 0 if max_visible is None else max(0, len(tags) - max_visible)
 
-    pills = "".join([f"<span class='tag-pill'>{html.escape(tag)}</span>" for tag in visible_tags])
+    pills = "".join(
+        [f"<span class='tag-pill'>{html.escape(tag)}</span>" for tag in visible_tags]
+    )
 
     if extra_count > 0:
         pills += f"<span class='tag-more'>+{extra_count} more</span>"
@@ -380,13 +412,17 @@ def highlight_text(text, query):
 def github_blob_url_for_pdf(pdf_path):
     relative_path = pdf_path.relative_to(BASE_DIR).as_posix()
     encoded_path = quote(relative_path, safe="/")
-    return (
-        f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/blob/"
-        f"{GITHUB_BRANCH}/{encoded_path}"
-    )
+    return f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/blob/{GITHUB_BRANCH}/{encoded_path}"
 
 
-def render_document_list(files):
+def select_document(path_obj):
+    st.session_state.selected_file = str(path_obj)
+
+
+# ---------------------------------------------------------
+# RENDERERS
+# ---------------------------------------------------------
+def render_document_list(files, stacked_mode=False):
     st.subheader("Documents")
     st.caption("Newest first")
 
@@ -395,20 +431,51 @@ def render_document_list(files):
     with list_container:
         if not files:
             st.write("No documents found.")
-        else:
-            for f in files:
-                is_selected = str(f) == st.session_state.selected_file
-                title = clean_display_title(f)
-                row_tags = get_file_tags(str(f))
+            return
 
-                row_box = st.container(border=True)
+        for f in files:
+            is_selected = str(f) == st.session_state.selected_file
+            title = clean_display_title(f)
+            row_tags = get_file_tags(str(f))
 
-                with row_box:
-                    row_col1, row_col2 = st.columns([4.4, 1.6], gap="medium")
+            row_box = st.container(border=True)
+
+            with row_box:
+                if stacked_mode:
+                    if is_selected:
+                        st.markdown(
+                            "<div class='doc-selected'>Selected</div>",
+                            unsafe_allow_html=True
+                        )
+
+                    st.markdown(
+                        f"<div class='doc-title'>{html.escape(title)}</div>",
+                        unsafe_allow_html=True
+                    )
+
+                    if row_tags:
+                        st.markdown(
+                            display_tag_pills(row_tags, max_visible=3),
+                            unsafe_allow_html=True
+                        )
+
+                    if st.button(
+                        "View document",
+                        key=f"open_mobile_{f.name}",
+                        use_container_width=True
+                    ):
+                        select_document(f)
+                        st.rerun()
+
+                else:
+                    row_col1, row_col2 = st.columns([4.0, 2.0], gap="medium")
 
                     with row_col1:
                         if is_selected:
-                            st.markdown("<div class='doc-selected'>Selected</div>", unsafe_allow_html=True)
+                            st.markdown(
+                                "<div class='doc-selected'>Selected</div>",
+                                unsafe_allow_html=True
+                            )
 
                         st.markdown(
                             f"<div class='doc-title'>{html.escape(title)}</div>",
@@ -423,12 +490,16 @@ def render_document_list(files):
 
                     with row_col2:
                         st.write("")
-                        if st.button("View", key=f"open_{f.name}", use_container_width=True):
-                            st.session_state.selected_file = str(f)
+                        if st.button(
+                            "View",
+                            key=f"open_desktop_{f.name}",
+                            use_container_width=True
+                        ):
+                            select_document(f)
                             st.rerun()
 
 
-def render_selected_document():
+def render_selected_document(search_query):
     if not st.session_state.selected_file:
         st.info("Select a document from the list.")
         return
@@ -466,16 +537,17 @@ def render_selected_document():
     text_bytes = text.encode("utf-8")
     pdf_bytes = pdf_path.read_bytes() if pdf_path else None
 
-    col1, col2, col3, col4 = st.columns(4)
+    action_col1, action_col2 = st.columns(2)
+    action_col3, action_col4 = st.columns(2)
 
-    with col1:
+    with action_col1:
         text_b64 = base64.b64encode(text_bytes).decode("utf-8")
         st.markdown(
             f'<a href="data:text/plain;charset=utf-8;base64,{text_b64}" target="_blank">Open text in new tab</a>',
             unsafe_allow_html=True
         )
 
-    with col2:
+    with action_col2:
         st.download_button(
             label="Download text",
             data=text_bytes,
@@ -484,7 +556,7 @@ def render_selected_document():
             key=f"download_text_{selected_path.name}"
         )
 
-    with col3:
+    with action_col3:
         if pdf_path and pdf_bytes:
             st.download_button(
                 label="Download PDF",
@@ -494,7 +566,7 @@ def render_selected_document():
                 key=f"download_pdf_{selected_path.name}"
             )
 
-    with col4:
+    with action_col4:
         if pdf_path:
             pdf_url = github_blob_url_for_pdf(pdf_path)
             st.link_button("View Original PDF", pdf_url)
@@ -508,10 +580,9 @@ def render_selected_document():
         st.warning("PDF not found for this document.")
 
 
-if "selected_file" not in st.session_state:
-    st.session_state.selected_file = None
-
-
+# ---------------------------------------------------------
+# HEADER
+# ---------------------------------------------------------
 header_image_path = ASSETS_DIR / "rogue-river.jpg"
 
 if header_image_path.exists():
@@ -532,12 +603,17 @@ This tool is for research and public access only.
 """
 )
 
+
+# ---------------------------------------------------------
+# FILTERS
+# ---------------------------------------------------------
 search_query = st.text_input("Search documents")
 
 view_mode = st.radio(
     "View mode",
     options=["Side by side", "Stacked (better for mobile)"],
     horizontal=True,
+    key="view_mode",
     help="Use stacked mode on phones or when you want larger reading areas."
 )
 
@@ -561,15 +637,20 @@ selected_tags = st.multiselect(
 
 files = [f for f in search_filtered_files if file_matches_tags(f, selected_tags)]
 
+
+# ---------------------------------------------------------
+# MAIN LAYOUT
+# ---------------------------------------------------------
 if view_mode == "Side by side":
     left_col, right_col = st.columns([1.45, 2.1], gap="large")
 
     with left_col:
-        render_document_list(files)
+        render_document_list(files, stacked_mode=False)
 
     with right_col:
-        render_selected_document()
+        render_selected_document(search_query)
+
 else:
-    render_document_list(files)
+    render_selected_document(search_query)
     st.markdown("---")
-    render_selected_document()
+    render_document_list(files, stacked_mode=True)
