@@ -1,0 +1,39 @@
+name: Daily County Harvest
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # Runs daily (UTC)
+  workflow_dispatch:        # Allows manual run
+
+jobs:
+  run-harvester:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pymupdf streamlit
+
+      - name: Run harvester + parser
+        run: |
+          export PYTHONPATH=.
+          python src/agents/harvester.py
+
+      - name: Commit new data
+        run: |
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
+
+          git add data/
+
+          git diff --cached --quiet || git commit -m "Daily data update"
+
+          git push
