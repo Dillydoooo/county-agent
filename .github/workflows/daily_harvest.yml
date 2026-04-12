@@ -2,8 +2,11 @@ name: Daily County Harvest
 
 on:
   schedule:
-    - cron: '0 13 * * *'   # Runs daily (UTC)
-  workflow_dispatch:        # Allows manual run
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   run-harvester:
@@ -12,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,7 +32,7 @@ jobs:
           export PYTHONPATH=.
           python src/agents/harvester.py
 
-      - name: Commit new data
+      - name: Commit and push changes
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
