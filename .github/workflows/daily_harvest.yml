@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +31,7 @@ jobs:
         run: |
           pip install requests beautifulsoup4 pymupdf streamlit
 
-      - name: Run harvester + parser
+      - name: Run harvester
         run: |
           export PYTHONPATH=.
           python src/agents/harvester.py
@@ -42,6 +43,12 @@ jobs:
 
           git add data/
 
-          git diff --cached --quiet || git commit -m "Daily data update"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
 
-          git push
+          git commit -m "Daily data update"
+
+          git pull --rebase origin main
+          git push origin main

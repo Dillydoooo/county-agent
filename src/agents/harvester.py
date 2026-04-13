@@ -1,27 +1,58 @@
 import os
+import re
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse, unquote
 
-# IMPORT YOUR PARSER
+# FIX PATH FOR IMPORTS
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
 from src.parsers.pdf_parser import process_all_pdfs
 
 
+# --- FILTER (TIGHT) ---
 def is_relevant_pdf(url):
     url_lower = url.lower()
 
-    keywords = [
+    include_keywords = [
         "agenda",
         "minutes",
         "packet",
+        "weekly-business-session",
+        "wbs",
+        "executive-session",
+        "admin-agenda",
+        "legal-counsel",
         "hearing",
-        "session",
-        "board",
     ]
 
-    return any(k in url_lower for k in keywords)
+    exclude_keywords = [
+        "application",
+        "permit",
+        "form",
+        "rental",
+        "brochure",
+        "flyer",
+        "job",
+        "employment",
+        "map",
+        "guide",
+        "starting-your-business",
+        "rent-anne",
+        "staff-report",
+        "exhibits",
+        "notice",
+    ]
+
+    if any(bad in url_lower for bad in exclude_keywords):
+        return False
+
+    return any(good in url_lower for good in include_keywords)
 
 
+# --- SCRAPER ---
 def get_pdf_links():
     page_url = "https://www.josephinecounty.gov/government/board_of_county_commissioners/agenda___minutes.php"
     site_root = "https://www.josephinecounty.gov/"
@@ -52,6 +83,7 @@ def get_pdf_links():
     return links
 
 
+# --- FILENAME CLEANUP ---
 def safe_filename_from_url(url):
     path = urlparse(url).path
     name = os.path.basename(path)
@@ -60,25 +92,33 @@ def safe_filename_from_url(url):
     if not name.lower().endswith(".pdf"):
         name += ".pdf"
 
-    bad_chars = '<>:"/\\|?*'
-    for ch in bad_chars:
-        name = name.replace(ch, "_")
+    # Normalize date → YYYY-MM-DD
+    date_match = re.search(r'(\d{1,2})[-/\.](\d{1,2})[-/\.](\d{4})', name)
+    if date_match:
+        m, d, y = date_match.groups()
+        normalized_date = f"{y}-{int(m):02d}-{int(d):02d}"
+        name = re.sub(r'\d{1,2}[-/\.]\d{1,2}[-/\.]\d{4}', normalized_date, name)
+
+    name = name.lower()
+    name = name.replace(" ", "-")
+    name = re.sub(r'[^a-z0-9\-.]', '', name)
 
     return name
 
 
+# --- DOWNLOAD ---
 def download_pdfs():
     pdf_links = get_pdf_links()
 
     if not pdf_links:
-        return "No PDF links found."
+        return 0
 
     os.makedirs("data/raw", exist_ok=True)
 
     new_files = 0
 
-    for i, url in enumerate(pdf_links[:10], start=1):
-        print(f"Downloading {i} of {min(len(pdf_links), 10)}: {url}")
+    for i, url in enumerate(pdf_links[:15], start=1):
+        print(f"Downloading {i} of {min(len(pdf_links), 15)}: {url}")
 
         try:
             filename = safe_filename_from_url(url)
@@ -103,17 +143,18 @@ def download_pdfs():
     return new_files
 
 
+# --- MAIN PIPELINE ---
 if __name__ == "__main__":
     print("\n--- START HARVEST ---\n")
 
     new_count = download_pdfs()
-
     print(f"\nNew PDFs downloaded: {new_count}")
 
-    print("\n--- START PARSING ---\n")
-
-    result = process_all_pdfs()
-
-    print(result)
+    if new_count > 0:
+        print("\n--- START PARSING (NEW FILES ONLY) ---\n")
+        result = process_all_pdfs()
+        print(result)
+    else:
+        print("\n--- SKIPPING PARSE (NO NEW FILES) ---\n")
 
     print("\n--- DONE ---\n")

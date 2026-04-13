@@ -1,114 +1,86 @@
 import os
+from pathlib import Path
+import fitz
 import re
-import fitz  # PyMuPDF
 
-def extract_text_from_pdf(pdf_path):
-    text_parts = []
+RAW_DIR = Path("data/raw")
+PARSED_DIR = Path("data/parsed")
 
-    with fitz.open(pdf_path) as doc:
-        for page_num, page in enumerate(doc, start=1):
-            page_text = page.get_text("text")
-            text_parts.append(f"\n--- Page {page_num} ---\n")
-            text_parts.append(page_text)
+PARSED_DIR.mkdir(parents=True, exist_ok=True)
 
-    return "".join(text_parts)
 
-def clean_filename(name):
-    name = os.path.splitext(name)[0]
+def normalize_name(name):
+    name = name.lower()
 
-    # normalize spaces and separators
-    name = name.strip().lower()
-    name = name.replace("&", "and")
-    name = re.sub(r"[^\w\s-]", "", name)
-    name = re.sub(r"[\s_]+", "-", name)
-    name = re.sub(r"-{2,}", "-", name).strip("-")
+    name = re.sub(r'(\d{1,2})[-/\.](\d{1,2})[-/\.](\d{4})',
+                  lambda m: f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}",
+                  name)
+
+    name = name.replace(" ", "-")
+    name = re.sub(r'[^a-z0-9\-]', '', name)
 
     return name
 
-def extract_date_prefix(name):
-    patterns = [
-        r"(\d{2})-(\d{2})-(\d{4})",   # 04-08-2026
-        r"(\d{1})-(\d{1,2})-(\d{4})", # 4-8-2026
-        r"(\d{1,2})\.(\d{1,2})\.(\d{2,4})", # 3.11.26 or 03.12.2026
-    ]
 
-    for pattern in patterns:
-        match = re.search(pattern, name)
-        if match:
-            parts = match.groups()
+def extract_date(name):
+    match = re.search(r'(\d{4}-\d{2}-\d{2})', name)
+    if match:
+        return match.group(1)
+    return "no-date"
 
-            if "." in match.group(0):
-                month = int(parts[0])
-                day = int(parts[1])
-                year = int(parts[2])
-                if year < 100:
-                    year += 2000
-            else:
-                month = int(parts[0])
-                day = int(parts[1])
-                year = int(parts[2])
 
-            return f"{year:04d}-{month:02d}-{day:02d}"
+def parse_pdf(file_path):
+    try:
+        doc = fitz.open(file_path)
+        text = ""
 
-    return "unknown-date"
+        for page in doc:
+            text += page.get_text()
 
-def build_output_filename(pdf_filename, used_names):
-    date_part = extract_date_prefix(pdf_filename)
-    clean_part = clean_filename(pdf_filename)
+        return text.strip()
+    except Exception as e:
+        print(f"Failed parsing {file_path}: {e}")
+        return None
 
-    # remove repeated date text from clean part if present
-    clean_part = re.sub(r"^\d{1,2}[-.]\d{1,2}[-.]\d{2,4}-?", "", clean_part)
-    clean_part = re.sub(r"^\d{1,2}-\d{1,2}-\d{4}-?", "", clean_part)
-    clean_part = clean_part.strip("-")
-
-    if not clean_part:
-        clean_part = "document"
-
-    base_name = f"{date_part}__{clean_part}.txt"
-    final_name = base_name
-    counter = 2
-
-    while final_name in used_names:
-        final_name = f"{date_part}__{clean_part}__{counter}.txt"
-        counter += 1
-
-    used_names.add(final_name)
-    return final_name
 
 def process_all_pdfs():
-    raw_folder = "data/raw"
-    parsed_folder = "data/parsed"
-
-    os.makedirs(parsed_folder, exist_ok=True)
-
     results = []
-    used_names = set()
+    seen = set()  # <-- THIS FIXES DUPLICATES
 
-    for existing in os.listdir(parsed_folder):
-        used_names.add(existing)
+    for pdf_file in RAW_DIR.glob("*.pdf"):
+        clean_name = normalize_name(pdf_file.stem)
 
-    for filename in os.listdir(raw_folder):
-        if filename.lower().endswith(".pdf"):
-            pdf_path = os.path.join(raw_folder, filename)
+        if clean_name in seen:
+            continue
+        seen.add(clean_name)
 
-            try:
-                text = extract_text_from_pdf(pdf_path)
-                txt_filename = build_output_filename(filename, used_names)
-                txt_path = os.path.join(parsed_folder, txt_filename)
+        date_part = extract_date(clean_name)
 
-                with open(txt_path, "w", encoding="utf-8") as f:
-                    f.write(text)
+        text = parse_pdf(pdf_file)
 
-                message = f"Parsed: {txt_path}"
-                print(message)
-                results.append(message)
+        if not text:
+            continue
 
-            except Exception as e:
-                message = f"Failed: {pdf_path} -> {e}"
-                print(message)
-                results.append(message)
+        filename = f"{date_part}__{clean_name}.txt"
+        save_path = PARSED_DIR / filename
+
+        if save_path.exists():
+            continue
+
+        with open(save_path, "w", encoding="utf-8") as f:
+            f.write(text)
+
+        message = f"Parsed: {save_path}"
+        print(message)
+        results.append(message)
 
     if not results:
-        return "No PDFs found in data/raw."
+        print("No new PDFs to parse.")
+    else:
+        print("\n".join(results))
 
-    return "\n".join(results)
+
+if __name__ == "__main__":
+    print("\n--- MANUAL PARSE RUN ---\n")
+    process_all_pdfs()
+    print("\n--- DONE ---\n")
