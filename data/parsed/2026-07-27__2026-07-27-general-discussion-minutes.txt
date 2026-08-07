@@ -1,0 +1,333 @@
+APPROVED ON AUGUST 5, 2026  
+BY THE BOARD OF COUNTY COMMISSIONERS 
+AT THE WEEKLY BUSINESS SESSION 
+ 
+Monday, July 27, 2026 
+10:00 a.m. – General Discussion 
+Commissioners Ron Smith, Chair; Colene Martin, Vice-Chair; Gary Richardson; Nikole Guzman, Recorder 
+ 
+Additional Attendees: Ryan Johnson, Facilities Director; Scott Hyde, Community Justice Director; Dave Streeter, 
+Forestry Director; Sheriff Dave Daniel; Rob Brandes, Public Works Director; and Matt Weinberger, Day Wireless 
+Systems 
+ 
+Chair Ron Smith called the meeting to order at 10:00 a.m. 
+ 
+1. Declaration of Potential Conflicts of Interest 
+All Commissioners reviewed today’s agenda, and it was determined that there are no conflicts of interest.  
+2. Communications 
+Commissioner Richardson explained that the purpose of the meeting was to identify the radio communications 
+needs of the Sheriff’s Office and other County departments and develop a coordinated plan for replacement 
+and modernization of the County’s public safety communications system. The Board invited department 
+representatives to describe their operational needs, known coverage deficiencies, and concerns regarding the 
+current system. 
+ 
+Current Radio System and Infrastructure 
+ 
+Facilities Director Ryan Johnson reported that the existing communications system is obsolete, manufacturers 
+no longer support much of the equipment, and replacement parts are increasingly difficult or impossible to 
+obtain. The current system consists primarily of four mountaintop sites and equipment located at the Justice 
+Building, connected through a microwave network. The system supports separate channels used by the 
+Sheriff’s Office, Public Works, general government, and other County operations. 
+ 
+Federal Engineering was completing an assessment of the system, including existing coverage and potential 
+locations for additional sites. Staff anticipated that the assessment would address significant deficiencies in the 
+Williams and Cave Junction areas, where radio service is limited or nonexistent in some locations. The Board 
+was awaiting the final report and associated coverage maps. 
+ 
+Commissioner Martin reported that she had contacted John Lee, Oregon’s Statewide Interoperability 
+Coordinator, regarding the County’s communications challenges. His office supports interoperable and 
+resilient emergency communications throughout Oregon and may assist the County in positioning the project 
+for Homeland Security and other federal grant opportunities. Mr. Lee offered to review communications sites 
+throughout Josephine County and identify existing federal, state, local, or privately owned towers that might 
+support the County’s system. 
+ 
+Communication Site Options 
+ 
+Matt Weinberger of Day Wireless Systems explained that the County could either purchase property and 
+construct its own towers and equipment shelters or lease space at existing communications sites. County-
+owned facilities would require a larger initial investment but would provide the County with direct control 
+over the site and its ongoing maintenance. 
+ 
+General Discussion 
+July 27, 2026 
+Page 2 of 7 
+ 
+Leasing or co-locating at an existing tower could reduce some construction costs, particularly when power and 
+other utilities are already available. However, a shared site must be evaluated for radio-frequency interference. 
+Sites already carrying VHF communications may require complex filters and signal-combining equipment, 
+which can increase cost and reduce system performance. Day Wireless recommended identifying technically 
+compatible sites that are not already heavily occupied by similar VHF systems. 
+ 
+Mr. Weinberger explained that the County’s existing VHF frequencies are closely grouped, requiring extensive 
+filtering. Filtering reduces the amount of radio signal ultimately transmitted from the antenna. The County’s 
+equipment was designed around older wideband standards and has struggled to maintain coverage following 
+the federal narrow banding requirements implemented in 2013. 
+ 
+VHF and Supplemental Technologies 
+ 
+Commissioners asked whether the County should move to a completely different radio technology. Mr. 
+Weinberger explained that VHF remains well suited to Josephine County because it travels farther with fewer 
+sites and performs comparatively well through mountainous and heavily forested terrain. Higher-frequency 
+UHF and 700/800 MHz systems may perform better inside buildings and dense urban areas but generally 
+require more towers to cover the same rural geographic area. 
+ 
+Day Wireless recommended maintaining a County-controlled VHF system as the primary communications 
+network. Supplemental technologies, including satellite service, Starlink, higher-frequency radios, fiber 
+connections, and building-specific systems, could then be added to improve coverage in isolated areas or inside 
+facilities such as the Jail and hospitals. Mr. Weinberger cautioned against relying exclusively upon outside 
+satellite or commercial services because the County would not control those systems or their availability during 
+an emergency. 
+ 
+Preliminary Replacement Cost 
+ 
+Mr. Weinberger reviewed a 2022 proposal developed by Motorola and Day Wireless. At that time, replacement 
+of the primary system was estimated at approximately $3.3 million, with roughly $800,000 in optional lifecycle 
+and system-upgrade services. He estimated that a comparable project would likely cost approximately $5 
+million or more in 2026, before adding new mountaintop sites or other major system expansions. 
+ 
+The optional lifecycle agreement would allow Motorola and Day Wireless to inspect the system approximately 
+every two years, replace equipment that had reached the end of its supported life, and install necessary software 
+and firmware updates. Commissioners discussed the importance of maintaining the future system rather than 
+allowing it to remain unchanged until it again became obsolete. 
+ 
+Mr. Weinberger also advised that the County’s dispatch console and core equipment had fallen behind current 
+standards. Motorola had released a newer console platform that could be incorporated into the replacement 
+project. Promotional pricing was temporarily available on certain console positions, but Commissioners agreed 
+that the project should be designed around long-term operational needs rather than a short-term discount. 
+ 
+Power and System Reliability 
+ 
+General Discussion 
+July 27, 2026 
+Page 3 of 7 
+ 
+Facilities staff reported that several recent failures involved power systems at remote communications sites. 
+The Onion Mountain site relies primarily upon solar power, batteries, and a generator. Staff was replacing and 
+strengthening those systems, although bringing commercial electrical service to the site could be prohibitively 
+expensive because the nearest utility infrastructure may be several miles away. 
+ 
+Day Wireless described larger solar and battery systems that could provide more reliable long-term power at 
+remote sites. A properly designed direct-current power plant could include expanded solar panels, multiple 
+battery banks, inverters, converters, and a more dependable generator. Although such systems represent a 
+significant investment, they may cost substantially less than extending commercial electrical service over 
+several miles. 
+ 
+The Board discussed the need to design the system for severe weather, including heavy rain, snow, extended 
+power outages, and wildfire emergencies. Day Wireless recommended strengthening backup power at each 
+site and creating multiple communications paths so that a failure of one connection would not disable the entire 
+system. 
+ 
+Fiber could serve as the primary connection at sites where it is available, with microwave or satellite service 
+retained as a backup. Day Wireless emphasized that no single connection should be treated as completely 
+reliable and that the County should maintain redundant paths wherever practical. 
+ 
+Commissioners also supported regularly testing the system under failover conditions rather than assuming 
+backup equipment would function during an emergency. Day Wireless recommended incorporating 
+communications failures into mass-casualty and emergency-response exercises involving law enforcement, 
+Emergency Management, Public Works, medical providers, and other participating agencies. 
+ 
+Community Justice Communication Needs 
+ 
+Community Justice Director Scott Hyde reported that probation officers and work crews regularly travel 
+throughout Josephine County. His department had tracked locations where employees experienced weak or 
+unreliable radio service and provided that information to Facilities and Public Works. 
+ 
+Community Justice staff travel throughout the Illinois Valley, Williams, Wolf Creek, the Speaker Road area, 
+communities near the Jackson County border, and other remote portions of the County. Mr. Hyde described 
+locations where radio service disappears after employees travel behind hills or into valleys. He acknowledged 
+that covering every isolated location may not be financially practical but emphasized the need to obtain the 
+greatest possible coverage for employees working alone or transporting work crews. 
+ 
+Sheriff’s Office Communication Needs 
+ 
+Sheriff Dave Daniel stated that the communication deficiencies have directly affected Sheriff’s Office 
+operations and deputy safety. Deputies are familiar with known dead zones and must modify how they respond 
+or deploy personnel in areas where radio service is unreliable. 
+ 
+The Sheriff characterized the situation as serious and supported both restoration of the existing system for 
+immediate needs and development of a comprehensive replacement plan. He expressed appreciation that 
+County departments, Facilities, Day Wireless, and the Board were working together to address the problem. 
+General Discussion 
+July 27, 2026 
+Page 4 of 7 
+ 
+ 
+Public Works Communication Needs 
+ 
+Public Works Director Rob Brandes reported that road crews experience many of the same dead zones 
+identified by Community Justice and the Sheriff’s Office. Page Mountain had historically presented a 
+significant problem, and communications can deteriorate during winter storms and other severe weather. 
+ 
+Public Works often sends employees into remote areas in pairs, but radio communication remains important 
+when crews are responding to landslides, fallen trees, snow, flooding, and road closures. The Board 
+emphasized that the system should be designed to function during those severe conditions because that is when 
+reliable communication is most critical. 
+ 
+Day Wireless discussed equipment capable of allowing an employee carrying a low-power handheld radio to 
+remotely use the higher-powered mobile radio installed in a nearby County vehicle. Such equipment could 
+extend an employee’s effective range while working away from the vehicle. 
+ 
+Forestry and Parks Communication Needs 
+ 
+Forestry Director Dave Streeter explained that Forestry uses the County radio system primarily for vehicle-to-
+vehicle communication during special projects and to monitor Oregon Department of Forestry radio traffic 
+during wildfire season. The department currently relies heavily upon cell phones because the cost previously 
+proposed for full participation in the County radio system exceeded the benefit Forestry expected to receive. 
+ 
+Mr. Streeter stated that Forestry would participate if directed and noted that the department manages County 
+land that might provide suitable locations for future communications sites. Once coverage maps identified 
+preferred locations, Forestry could assist in determining whether the County already owned appropriately 
+situated property. 
+ 
+Commissioner Martin stated that Parks should also be considered during system planning. Parks employees 
+travel to remote facilities where cellular service may be unreliable, including Whitehorse Park and parks along 
+the Rogue River. Although Parks was not currently a significant radio-system user, the department could 
+benefit from an emergency communication option if the cost were reasonable. 
+ 
+Emergency Management Participation 
+ 
+The Board discussed the need to include the County’s Emergency Management Director in the project. 
+Commissioner Martin reported that the new Director had experience with a recent radio-system upgrade in 
+another state and had expressed interest in participating in the planning process. 
+ 
+Commissioners agreed that Emergency Management should help evaluate site resiliency, backup power, mass-
+casualty exercises, wildfire communications, and coordination among participating agencies. 
+ 
+Interoperability and P25 Standards 
+ 
+General Discussion 
+July 27, 2026 
+Page 5 of 7 
+ 
+Mr. Weinberger explained that federal funding generally requires new public safety radio equipment to comply 
+with Project 25, commonly referred to as P25. P25 establishes technical standards allowing digital public safety 
+communications equipment from different manufacturers and agencies to operate together. 
+ 
+The County could continue operating conventional VHF channels while purchasing equipment capable of 
+future P25 digital operation. The Sheriff’s Office already possessed many radios capable of P25 
+communication, although the equipment would need to be inventoried, programmed, and activated. 
+ 
+The Board discussed the advantages and disadvantages of analog and digital communication. Digital radio can 
+provide clearer sound and extend useful coverage in some areas, but the signal may disappear abruptly when 
+it becomes too weak. An analog signal may remain partially understandable through static in fringe areas. Day 
+Wireless recommended designing a system capable of supporting both modes, with analog retained where 
+appropriate and digital channels added for law enforcement and other specialized operations. 
+ 
+Day Wireless also recommended considering encryption for certain law-enforcement communications because 
+of evolving security expectations concerning protected information transmitted over public radio systems. 
+ 
+Cave Junction and Additional Sites 
+ 
+The Board identified improved coverage in Cave Junction, Williams, and the Illinois Valley as a priority. Day 
+Wireless noted that Cave Junction previously had a communications site and that the County retains a 
+microwave license directed toward that area. Once a technically appropriate site is identified, the County could 
+revise the microwave licensing and add Cave Junction to the replacement project. 
+ 
+Commissioners agreed that the location should be selected based upon engineering and coverage requirements 
+rather than simply using County-owned property because it was available. However, County land that provided 
+nearly equivalent coverage could reduce acquisition or leasing costs and should be carefully evaluated. 
+ 
+Fiber and Redundant Connections 
+ 
+Commissioner Richardson asked whether fiber could replace some of the microwave links installed more than 
+20 years ago. Day Wireless stated that fiber is increasingly used as the primary connection when available, 
+while microwave remains as a secondary or backup path. 
+ 
+Staff and Day Wireless agreed to contact local fiber and utility providers, including AT&T, Hunter 
+Communications, and potentially utility or governmental broadband networks, to determine where service 
+might be available near existing or proposed communications sites. The Onion Mountain location was 
+identified as one of the most difficult sites because the County leases the property and commercial power and 
+fiber may be distant. 
+ 
+Funding and Financing Options 
+ 
+Commissioner Martin reported that she was pursuing federal appropriations and other grant opportunities 
+through the offices of Oregon’s congressional delegation. Day Wireless explained that federal appropriations 
+may reimburse certain eligible expenses already incurred, allowing the County to begin a project while 
+continuing to seek outside funding. 
+General Discussion 
+July 27, 2026 
+Page 6 of 7 
+ 
+ 
+Motorola also offers financing that may extend up to 15 years, with the possibility of deferring the first payment 
+for approximately one year. Under such an arrangement, the County could complete engineering, order the 
+equipment, install the system, and potentially begin operating before the first annual payment became due. 
+ 
+Commissioners discussed Homeland Security grants, federal appropriations, financing, County reserves, and 
+possible interfund loans. They agreed that grant opportunities should be aggressively pursued but that the 
+County could not postpone action indefinitely while waiting for outside funding because the existing system 
+was in a dangerous and increasingly unstable condition. 
+ 
+Commissioner Richardson discussed spreading the cost of a long-lived communications system over a period 
+of 20 or 30 years rather than requiring current taxpayers to bear the entire cost immediately. He clarified that 
+he was not proposing a new tax. Financing would instead allow the County to use existing revenues over time 
+while distributing the cost among the taxpayers who would benefit from the system during its useful life. 
+ 
+Procurement and Project Timing 
+ 
+Day Wireless explained that Motorola equipment may be purchased through the National Association of State 
+Procurement Officials cooperative contract, commonly referred to as NASPO. The cooperative contract 
+provides competitively procured pricing and may satisfy applicable public contracting requirements. Day 
+Wireless also participates in another Oregon governmental purchasing contract that could apply to portions of 
+the work. Legal Counsel would be consulted before the Board selected a procurement method. 
+ 
+A preliminary rough-order-of-magnitude estimate could potentially be prepared within several weeks, 
+although a more detailed and binding proposal could require 60 to 90 days. Manufacturing, delivery, site 
+construction, and installation would require additional time after a contract was executed. Day Wireless 
+advised that a formal Board expression identifying the project as a priority could help move the County higher 
+in Motorola’s engineering and proposal schedule. 
+ 
+Scope and Long-Term System Design 
+ 
+Commissioners requested that Day Wireless develop a complete project framework identifying essential 
+components, strongly recommended improvements, and optional future enhancements. The Board wanted to 
+understand the complete system before reducing or phasing the project based upon cost. 
+ 
+Day Wireless agreed to prepare a prioritized list that would distinguish the fundamental replacement system 
+from supplemental options such as satellite-capable radios, additional communications sites, expanded digital 
+functions, upgraded power systems, fiber connections, and other enhancements. Mr. Weinberger cautioned 
+that preparing numerous detailed pricing alternatives could delay the project because each technical choice 
+affects several other components. 
+ 
+The Board asked Day Wireless to describe a realistic, durable system that would provide the greatest coverage 
+and reliability without attempting to replicate the substantially larger and more expensive regional system 
+constructed in Jackson County. Mr. Weinberger explained that a fully trunked regional system involving 
+numerous agencies could cost tens of millions of dollars and was not an appropriate direct comparison for 
+Josephine County. 
+General Discussion 
+July 27, 2026 
+Page 7 of 7 
+ 
+ 
+A modern conventional VHF system could provide the County with a reliable base at a significantly lower 
+cost. The core equipment could be designed so that simulcast, digital operation, trunking, additional sites, and 
+other improvements could be added in later phases. 
+ 
+Commissioners supported constructing a strong, dependable base system with the technical capability to 
+accommodate future improvements. The system was compared to a modular structure in which the essential 
+foundation would be completed first and additional components could be added over the next five, ten, or 
+fifteen years without replacing the underlying infrastructure. 
+ 
+Next Steps 
+ 
+Day Wireless agreed to coordinate with Motorola Engineering, Federal Engineering, Facilities, and the 
+participating County departments to prepare a project scope and preliminary cost estimate. Day Wireless would 
+also conduct a more detailed review of the County’s remote sites with its construction personnel to evaluate 
+towers, shelters, generators, solar panels, batteries, and other power requirements. The Emergency 
+Management Director would be invited to participate in the site review. 
+ 
+The Board requested that the initial scope include the County’s essential replacement needs and show how the 
+system could be expanded over time. Commissioners stated that they wanted to understand the entire project 
+before selecting individual phases or removing components solely to reduce the initial estimate. 
+ 
+The Board agreed that reliable emergency communications were among the County’s highest operational 
+priorities. No formal expenditure or procurement decision was made. The matter will return for additional 
+discussion after the Federal Engineering report, Motorola information, project scope, and preliminary 
+estimates are available. A specific follow-up meeting date was not established. 
+ 
+3. Other 
+ 
+4. Additional Subject Matters from Commissioners/Announcements 
+ 
+The meeting adjourned at 11:31 a.m.
