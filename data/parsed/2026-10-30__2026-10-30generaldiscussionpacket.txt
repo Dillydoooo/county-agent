@@ -1,0 +1,1557 @@
+Boron
+ 5
+B
+Sodium
+ 11
+Na
+Potassium
+ 19
+K
+*3
+Nitrogen
+ 7
+N
+N
+7
+Carbon
+ 6
+C
+Critical Minerals in Oregon
+Oregon Department of Geology and Mineral Industries
+Securing a resilient supply-chain of domestic critical minerals 
+and materials is essential to the economic prosperity and 
+national security of the U.S. In the 21st century, the global 
+need to decarbonize energy production, manufacturing, and 
+transportation is shifting focus from traditional high-value 
+resources (e.g., gold) to a wide range of materials. Oregon has 
+a rich mining history, dating back to gold discoveries in the 
+1850s. Metal extraction has been dominated by gold, silver, 
+copper, and nickel. Many critical minerals have only become 
+important in the past 50 years, hence they were often 
+discarded with mine waste materials in favor of prioritizing 
+economic mineral targets.
+Oregon’s historic mine records provide a foundation to 
+guide mineral exploration in the State, now with a critical 
+mineral focus, and to engage with interested parties 
+throughout the process: from initial mapping, to green-energy 
+education and careers, and mine life-cycle management.
+The 2025 Critical Minerals Lists sees the addition of 10 
+minerals, compared to 2022: boron, copper, lead, metallurgical 
+coal, phosphate, potash, silicon, silver, rhenium, and uranium.
+Oregon is home to a unique and varied geology, formed by 
+volcanic and tectonic events that have resulted in a wide range 
+of critical mineral deposits: at least 40 of the 60 critical minerals 
+are indicated within the State in historic records, with others 
+anticipated by common mineral associations.
+The Department of the Interior (DOI) has published lists of Critical Minerals every three years since 2018. As required by The 
+Energy Act of 2020, the U.S. Geological Survey (USGS) has updated the list for 2025. The new list includes 60 minerals, highlighted 
+by the elements in the Periodic Table below.
+OVERVIEW
+THE 2025 CRITICAL MINERALS LIST
+CONTACT INFORMATION
+Jason D. McClaughry, RG
+Geological Survey & Services Program Manager
+Tribal Liaison
+TEL: (541) 519-3419
+email: DOGAMI-info@dogami.oregon.gov
+web: https://www.oregon.gov/dogami
+QUICK FACTS
+Deﬁnition: Critical minerals are non-fuel minerals essential 
+for the U.S. economy and security that are vital for modern 
+technologies, but face a risk of supply chain disruption.
+Importance: Critical minerals are fundamental to the 
+transition to a digital and sustainable economy, including: 
+Geopolitics: Resource competition and the potential for 
+export restrictions, highlight the need to secure a domestic 
+supply of critical materials. 
+Supply: Though found globally, the processing of many 
+critical minerals is concentrated in certain countries, leading 
+to concerns about supply-chain security. 
+Solutions: Eﬀorts to address vulnerable supply-chains 
+include domestic exploration and mapping, developing new 
+processing technologies, and improving recycling eﬃciency.
+Periodic Table of Elements
+Tennessine
+ 117
+Ts
+Livermorium
+ 116
+Lv
+Moscovium
+ 115
+Mc
+Flerovium
+ 114
+Fl
+Nihonium
+ 113
+Nh
+Copernicium
+ 112
+Cn
+Roentgenium
+ 111
+Rg
+Darmstadtium
+ 110
+Ds
+Meitnerium
+ 109
+Mt
+Hassium
+ 108
+Hs
+Bohrium
+ 107
+Bh
+Seaborgium
+ 106
+Sg
+Dubnium
+ 105
+Db
+Rutherfordium
+ 104
+Rf
+Lawrencium
+ 103
+Lr
+Nobelium
+ 102
+No
+Mendelevium
+ 101
+Md
+Fermium
+ 100
+Fm
+Einsteinium
+ 99
+Es
+Californium
+ 98
+Cf
+Berkelium
+ 97
+Bk
+Curium
+ 96
+Cm
+Americium
+ 95
+Am
+Plutonium
+ 94
+Pu
+Neptunium
+ 93
+Np
+Protactinium
+ 91
+Pa
+Thorium
+ 90
+Th
+Actinium
+ 89
+Ac
+Radium
+ 88
+Ra
+Francium
+ 87
+Fr
+Og
+ 118
+Oganesson
+Radon
+ 86
+Rn
+Astatine
+ 85
+At
+Polonium
+ 84
+Po
+Thallium
+ 81
+Tl
+Mercury
+ 80
+Hg
+Gold
+ 79
+Au
+Osmium
+ 76
+Os
+Promethium
+ 61
+Pm
+Xenon
+ 54
+Xe
+Iodine
+ 53
+I
+Cadmium
+ 48
+Cd
+Technetium
+ 43
+Tc
+Molybdenum
+ 42
+Mo
+Strontium
+ 38
+Sr
+Krypton
+ 36
+Kr
+Bromine
+ 35
+Br
+Selenium
+ 34
+Se
+Iron
+ 26
+Fe
+Calcium
+ 20
+Ca
+Argon
+ 18
+Ar
+Chlorine
+ 17
+Cl
+Sulfur
+ 16
+S
+Neon
+ 10
+Ne
+Oxygen
+ 8
+O
+Unknown
+Alkali Metal
+Noble Gas
+Halogen
+Transactinide
+Nonmetal
+Metalloid
+Metal
+Actinide
+Lanthanide
+Transition Metal
+Alkaline Earth
+Metal
+Helium
+ 2
+He
+Hydrogen
+ 1
+H
+11
+N
+Lithium
+ 3
+Li
+Str
+38
+Rubidium
+ 37
+Rb
+Cobalt
+ 27
+Co
+Aluminum
+ 13
+Al
+Beryllium
+ 4
+Be
+Silicon
+ 14
+Si
+Nickel
+ 28
+Ni
+Copper
+ 29
+Cu
+Cd
+Zinc
+ 30
+Zn
+Gallium
+ 31
+Ga
+Germanium
+ 32
+Ge
+S
+16
+Phosphorus
+ 15
+P
+20
+C
+Magnesium
+ 12
+Mg
+Scandium
+ 21
+Sc
+Titanium
+ 22
+Ti
+Vanadium
+ 23
+V
+M
+Chromium
+ 24
+Cr
+T
+ 26
+ 43
+T
+Manganese
+ 25
+Mn
+Yttrium
+ 39
+Y
+Zirconium
+ 40
+Zr
+MolyM
+ 42
+M
+Niobium
+ 41
+Nb
+O
+Ruthenium
+ 44
+Ru
+Rhodium
+ 45
+Rh
+Palladium
+ 46
+Pd
+80
+H
+A
+CaC
+48
+C
+Silver
+ 47
+Ag
+81
+Tl
+Indium
+ 49
+In
+Tin
+ 50
+Sn
+ 87
+F
+Cesium
+ 55
+Cs
+R
+88
+R
+Barium
+ 56
+Ba
+Lanthanoids
+ 57-71
+Ruth
+Actinoids
+ 89-103
+4
+Rf
+4
+104
+Hafnium
+ 72
+Hf
+5
+Db
+10
+D
+Tantalum
+ 73
+Ta
+6
+S
+ 10
+S
+Tungsten
+ 74
+W
+ 108
+H
+7
+Bh
+OO
+ 76
+O
+ 10
+B
+Rhenium
+ 75
+Re
+109
+Mt
+Iridium
+ 77
+Ir
+11
+R
+0
+D
+A
+ 79
+A
+ 110
+D
+Platinum
+ 78
+Pt
+114
+Fl
+Lead
+ 82
+Pb
+SeS
+34
+S
+Arsenic
+ 33
+As
+18
+A
+17
+Cl
+10
+N
+Fluorine
+ 9
+F
+89
+A
+Lanthanum
+ 57
+La
+Th
+90
+T
+Cerium
+ 58
+Ce
+P
+91
+P
+Praseodymium
+ 59
+Pr
+Pro
+ 61
+P
+ 60
+Nd
+Neodymium
+ 94
+P
+m
+Samarium
+ 62
+Sm
+A
+95
+A
+Europium
+ 63
+Eu
+C
+96
+C
+Gadolinium
+ 64
+Gd
+Bk
+ 97
+B
+Terbium
+ 65
+Tb
+Cf
+98
+Dysprosium
+ 66
+Dy
+E
+99
+Holmium
+ 67
+Ho
+0
+F
+10
+F
+Erbium
+ 68
+Er
+1
+Md
+10
+M
+Thulium
+ 69
+Tm
+2
+N
+10
+N
+Ytterbium
+ 70
+Yb
+3
+L
+103
+Lutetium
+ 71
+Lu
+Batteries
+cobalt
+lithium
+manganese
+antimony
+Electronics
+silicon
+gallium
+germanium
+Defense & Aerospace
+beryllium
+nickel
+chromium
+atomic number
+symbol
+ name
+*1
+*4
+*2
+*1 C as graphite
+*2 F as ﬂuorospar
+*3 K as potash
+*4 Ba as barite
+Antimony
+ 51
+Sb
+85
+A
+P
+I
+53
+Tellurium
+ 52
+Te
+11
+5
+M
+PoP
+11
+M
+84
+P
+Bismuth
+ 83
+Bi
+sees the
+NeN
+m
+ 93
+N
+Uranium
+ 92
+U
+Item 2
+Oregon has historically produced, or has known occurrences 
+of, several minerals on the USGS Critical Minerals List. Some of 
+these critical minerals can be found as byproducts of mining 
+other commodities (e.g., gold). According to the latest release 
+of the Mineral Information Layer for Oregon (MILO-4), there are 
+more than 10,000 mine site records for critical minerals 
+identiﬁed on the 2025 USGS list (right). Key critical minerals in 
+Oregon include:
+CRITICAL MINERALS IN OREGON
+NEXT STEPS
+DOGAMI is  engaged in critical minerals exploration across 
+the State, with active resource characterization projects in 
+McDermitt Caldera, SE Oregon (Li), and the Blue Mountains 
+(Bi, Co, Ga, Ge, W), and USGS geophysical data collection 
+scheduled for 2025-2026 in NE Oregon. DOGAMI will use the 
+MILO-4 dataset, together with arising data, to deﬁne new 
+USGS focus areas and plan future exploration targets.
+DOGAMI’s research and exploration of critical minerals is 
+guided by outreach and engagement with communities and 
+Tribal Nations at every step of the process. By putting 
+community collaboration at the forefront of the research and 
+development process, DOGAMI will fulﬁll its mission of 
+providing earth science information and regulation to make 
+Oregon safe and prosperous.
+Cobalt
+ 27
+Co
+Aluminum
+ 13
+Al
+Nickel
+ 28
+Ni
+27
+Chromium
+ 24
+Cr
+Silver
+ 47
+Ag
+Copper
+ 29
+Cu
+Tungsten
+ 74
+W
+3
+Antimony
+ 51
+Sb
+USGS focus areas are deﬁned by known occurrences of critical 
+minerals: DOGAMI is working to update areas using emerging 
+data, and geologic characterization from mapping actiities.
+Critical mineral occurrences (white dots) in Oregon are closely 
+related to gravity and magnetic anomalies, representing geologic 
+features such as rock contacts and faults, below Earth’s surface.
+Isostatic gravity anomaly
+-60
+mGal
+84
+100 miles
+100 km
+USGS Focus Areas
+100 miles
+100 km
+24
+Lithium
+ 3
+Li
+An essential ingredient in rechargeable batteries.
+Known occurrences in SE Oregon: McDermitt 
+caldera hosts the largest Li discovery in the U.S.
+Essential in rechargeable batteries and alloys.
+Found in localized deposits in NE Oregon and as 
+distributed deposits with Ni and Cr in laterite soils.
+In high demand for clean energy technologies. 
+Found in NW and SW Oregon as distributed deposits 
+with Co and Cr, largely in laterite soils formed from 
+uplifted and accreted oceanic rocks.
+Essential to national security, defense, and modern 
+technologies. Occurrences in central and NE 
+Oregon, formed in epithermal systems: deposited 
+by hot, mineral-rich volcanic ﬂuids.
+A key element in the energy transition for solar 
+panels, EVs, and advanced electronics. Ag has been 
+mined extensively in NE and SW Oregon.
+Used in electronics and needed in increasing 
+quantities for the energy transition. Cu has been 
+mined extensively Oregon, particularly in NE and SW 
+as a coproduct with gold and silver.
+Used extensively in key sectors like construction, 
+transportation, and national defense. The ore 
+bauxite is found in NW Oregon.
+Essential for cemented carbides, cutting tools, and 
+specialized alloys. W is found in NE Oregon, in 
+association with Au, Mo, and Cu.
+Essential in stainless steel and superalloys, for its 
+heat-resistant 
+and 
+anti-corrosion 
+properties. 
+Distributed over large areas of SW and NE Oregon 
+within fragments of former ocean crust.
+SE OR Lithium
+McDermitt
+Caldera
+Great Basin
+Volcanic Massive
+Sulﬁde
+OR-ID tungsten province
+Au-Ag polymetallic veins
+Blue Mountains Province
+OR stream placers
+SW WA bauxite
+CA coast ranges massive sulﬁde
+OR Cypress-type massive sulﬁde
+CA-OR laterites
+CA coast ranges graphite
+Klamath Mtns Orogenic Au
+OR-ID massive sulﬁde
+Magnetic anomaly
+-400
+400
+nT
+100 miles
+100 km
+MILO critical mineral
+record (n = 10,344)
+MILO critical mineral
+record (n = 10,344)
+Geologic Carbon Sequestration in Oregon
+An Update on State Investigations: September 2025
+Oregon Department of Geology and Mineral Industries
+Oregon has the potential to develop a thriving carbon-negative 
+economy, attracting innovative technologies like direct air 
+capture, 
+point-source 
+removal, 
+and 
+geologic 
+carbon 
+sequestration, that capitalize on Oregon’s Climate Protection 
+Program, robust renewable energy grid, and widely distributed 
+geologic storage system.
+The State of Oregon has established ambitious climate 
+goals aimed at signiﬁcantly reducing greenhouse gas emissions 
+by 2035, and achieving net-zero carbon emissions by 2050. 
+Realizing those goals will require a multi-faceted approach. 
+Establishing regional carbon-management hubs across the 
+State, capable of safely and permanently storing carbon 
+dioxide (CO2) could play an important role.
+The State has directed the Department of Geology & 
+Mineral Industries (DOGAMI) to investigate the potential for 
+geologic carbon sequestration in the Columbia River Basalt 
+Group (CRBG, as shown on the right).
+The Columbia River Basalt Group (CRBG)
+COMMUNITY
+ENGAGEMENT
+NEAR-TERM PROJECT GOALS
+TECHNICAL
+FEASIBILITY
+118˚W
+48˚N
+124˚W
+44˚N
+42˚N
+46˚N
+Washington
+CÄ
+Oregon
+California
+Nevada
+Idaho
+Montana
+PĆ Ĉ Ď
+ċ Ď Ĉ O
+Ĉ Ċ Ć ē
+C Ć Ę Ĉ Ć
+ĉ Ċ    
+       
+R Ć ē
+Č Ċ
+Portland
+Salem
+Medford
+Seattle
+Prineville
+John Day
+Ontario
+Spokane
+Lakeview
+Astoria
+CRBG thickness
+contours (ft)
+2300
+5000
+14800
+9800
+Pendleton
+>500,000
+<500,000
+<250,000
+<100,000
+<25,000
+tCO2e emitted
+in 2022
+Extent of Columbia River
+Basalt Group (CRBG)
+CRBG thickness
+(feet)
+Oil & gas wells
+Gas pipeline
+CTUIR Aboriginal
+Title Lands
+CTUIR Tribal
+Lands
+100 miles
+1.
+Establish agreements with academic, workforce, and community partners
+2.
+Engagement and outreach with all potentially aﬀected communities
+3.
+Stratigraphic well site-selection and well installation
+4.
+Geologic models using surface and underground data
+5.
+Development of state regulations
+6.
+Legislative considerations
+Protecting groundwater and other natural resources is of the 
+utmost importance to any carbon storage project. The US 
+Environmental Protection Agency (EPA) has strict standards 
+under the Clean Water Act, that must be met for any carbon 
+injection to be permitted, including:
+1. Geologic characterization of the storage reservoir and 
+identiﬁcation of a robust seal
+2. Water quality and aquifer protection assessment
+3. Well construction requirements, and well materials 
+corrosion monitoring
+4. Long-term ﬁnancial liability and stewardship 
+requirements
+5. Community engagement, including a period of public 
+consultation prior to permitting
+CONTACT INFORMATION
+Jason D. McClaughry, RG
+Geological Survey & Services Program Manager
+Tribal Liaison
+TEL: (541) 519-3419
+email: DOGAMI-info@dogami.oregon.gov
+web: https://www.oregon.gov/dogami
+REGULATORY
+STRUCTURE
+• Investigation 
+of 
+Class 
+VI 
+underground 
+injection well (UIC) regulatory primacy
+• Development of permitting pathways for 
+carbon 
+sequestration 
+and 
+geothermal 
+exploration.
+• Install 1-3 stratigraphic wells on Department 
+of State Lands (DSL) property
+• Surface-based geologic mapping
+• Subsurface geophysical mapping
+• Hydrologic and chemical data collection
+• Seismic-hazard analysis
+• Listening 
+to 
+Tribal 
+Nations, 
+regional 
+stakeholders, and nearby property owners
+• Educational program development
+• Assessment of community workforce and 
+economic needs
+PROJECT OVERVIEW
+KEY EPA REGULATIONS FOR CLASS VI CARBON
+DIOXIDE INJECTION WELLS
+NEXT STEPS FOR THE PROJECT
+WHAT IS MINERAL STORAGE?
+WHERE COULD CO2 BE STORED IN THE COLUMBIA RIVER BASALTS?
+Natural carbon mineralization in basalt
+Lavas of the Columbia RIver Basalt Group
+Types of Geologic Carbon Storage (GCS)
+CLIMATE CHANGE: THE NEED FOR ACTION
+1750
+1800
+1900
+1850
+2000
+1950
+420
+400
+380
+360
+340
+320
+300
+280
+260
+40
+35
+30
+25
+20
+15
+10
+5
+0
+Atmospheric Carbon Dioxide
+(parts per million)
+Atmospheric CO2
+CO2
+Emissions
+Carbon Dioxide Emissions
+(Billlion metric tons)
+INDUSTRIAL-AGE CARBON DIOXIDE
+1.3°C 
+rise since pre-industrial era
+800 GtCO2 
+remaining budget to exceed targets
+40 GtCO2 / year
+in global emissions
+20 years 
+remaining to meet targets
+2.0°C 
+target set in the Paris Climate Agreement
+1
+10
+100
+structural &
+stratigraphic
+trapping
+residual CO2
+trapping
+solubility
+trapping
+structural &
+stratigraphic trapping
+residual CO2
+trapping
+solubility
+trapping
+mineral
+trapping
+mineral
+trapping
+1000
+10,000
+time since injection stops (years)
+trapping contribution (0 - 100%)
+1
+10
+0.1
+100
+1000
+increasing storage security
+20 miles
+CRBG total thickness
+Columbia Basin
+Grande Ronde
+thickness (ft)
+15,000
+0
+Department of State
+Lands-owned property
+surface only
+sub-surface only
+surface & sub-surface
+Grant County
+Wheeler County
+Jeﬀerson County
+Baker
+County
+Marion
+County
+Clackamas
+County
+Wasco County
+Hood River
+County
+Multnomah County
+Sherman
+County
+Washington
+County
+Gilliam
+County
+Union
+County
+Morrow County
+Wallowa
+County
+Umatilla
+County
+Columbia
+County
+2,300 ft
+5,000 ft
+9,800 ft
+Thickness of the Grande Ronde Basalt within the Columbia River Basin. A Department of State Lands property in northern Oregon 
+will be selected for the stratigraphic research well. No CO2 will be injected during this project.
+GEOLOGIC CARBON STORAGE IN THE COLUMBIA RIVER BASALTS: SOME KEY POINTS
+Breccia
+Vesicles
+Platy
+joints
+Columns
+Flow bottom
+Flow top
+Lower
+colonnade
+Upper
+colonnade
+Entablature
+Altered
+basalt
+Geologic carbon storage (GCS) is the process of capturing carbon dioxide (CO2) from industrial sources or the atmosphere, 
+compressing it into a ﬂuid, and injecting it deep underground into suitable geological formations to be permanently stored.
+Most types of GCS system store CO2 as a ﬂuid in the subsurface, and require long-term monitoring to ensure that ﬂuid does 
+not leak in the future. However, CO2-rich ﬂuids will react with the minerals in basalt, turning that CO2 into stone over time (mineral 
+trapping). This process occurs slowly in nature, and is accelerated with the addition of higher CO2 concentrations in the ﬂuid.
+Potential CO2 reservoirs in the CRBG reside in the Grande Ronde 
+Basalt, far below the potable water zone in the Columbia Basin. 
+The Grande Ronde includes ~100 individual lavas, with a total 
+thickness up to 14,760 feet and covering ~65,600 square miles. 
+It is estminated that the Grande Ronde may be capable of 
+storing 40 billion metric tons (Gt) of CO2.
+Grande Ronde lavas consist of fractured, weathered, 
+fragmented, and vesicular top and base zones, and denser 
+interior zones that often have colonnade joints. Lava tops and 
+bottoms can have porosity up to ~40%, whereas unit interior 
+porosity is typically 1-3%. Lava tops and bases may be good 
+reservoirs for CO2 storage, with lava interiors acting as seals.
+The stratigraphic research well will allow characterization 
+of rock properties, to determine the suitability of the basalts 
+for CO2 mineral storage, at great depth.
+Calcite
+Calcium carbonate
+CaCO3
+Basalt
+Basalt
+Siderite
+Iron carbonate
+FeCO3
+Geothermal Energy in Oregon
+Oregon Department of Geology and Mineral Industries
+Geothermal energy is a crucial potential source of constant, 
+24/7 renewable power in the Western U.S. This potential is due 
+to the region's active geology, marked by tectonic plate 
+boundaries, volcanic activity (such as the Cascade Range), and 
+hot spot areas. While California and Nevada currently lead the 
+nation in installed geothermal electricity capacity, Oregon is 
+one of the few states with existing utility-scale geothermal 
+power generation and consistently ranks among the top states 
+for geothermal potential. With known resources in the 
+Cascade Range and the Basin and Range Province of its central 
+and southeastern counties, Oregon is well positioned to 
+leverage 
+both 
+conventional 
+(hydrothermal) 
+and 
+next-generation technologies, such as Enhanced Geothermal 
+Systems (EGS), to expand this reliable resource and help the 
+entire Western grid transition to a clean-energy future.
+OVERVIEW
+WHAT IS GEOTHERMAL ENERGY
+Deﬁnition: Geothermal is a renewable energy resource that 
+taps into the heat beneath the Earth's surface. Drilled wells can 
+extract hot ﬂuids (water or steam), which are used to generate 
+electricity or provide direct heating. Unlike solar or wind, 
+geothermal is not dependent on weather or time of day, 
+making it a reliable, constant (baseload) power source for the 
+grid.
+WHY GEOTHERMAL MATTERS
+Reliable Baseload Power: Unlike solar and wind, geothermal 
+runs 24/7, providing system stability.
+Low Emissions & Clean Energy Goals: Helping Oregon to 
+meet its goals of 100% clean electricity generation by 2040.
+Small Land Footprint: Requires signiﬁcantly less land per 
+megawatt than other renewables.
+Economic Impact: Provides local jobs in rural communities 
+and stable energy costs.
+BARRIERS AND CHALLENGES
+High Upfront Costs: Exploration and drilling can be 
+time-consuming and expensive.
+Resource Risk/Uncertainty: Currently there are large data 
+gaps for assessing geothermal resources (heat and ﬂow).
+Siting and Permitting: The need for careful siting to avoid 
+impacts on environmental areas (e.g., hot springs).
+Types: Geothermal energy is used in two main ways: Electricity 
+generation uses high-temperature ﬂuids to spin turbines; Direct 
+Use and district heating use lower temperature hot ﬂuids to heat 
+homes, businesses, and pools, displacing fossil fuels and saving 
+money. Oregon is a leader in both applications.
+New technologies: Enhanced Geothermal Systems (EGS) and 
+Superhot Rock Geothermal could help access areas of hot, dry 
+rock where natural ﬂuids are lacking, signiﬁcantly expanding 
+Oregon's resource potential (e.g., Newberry Caldera projects).
+National Renewable Energy Laboratory (NREL) map of geothermal 
+resources in the U.S. highlighting Oregon’s geothermal potential.
+CONTACT INFORMATION
+Jason D. McClaughry, RG
+Geological Survey & Services Program Manager
+Tribal Liaison
+TEL: (541) 519-3419
+email: DOGAMI-info@dogami.oregon.gov
+web: https://www.oregon.gov/dogami
+inner core: 3,200-3,959 miles
+solid
+1,000°C
+2,000°C
+3,700°C
+4,500°C
+outer core: 1,790-3,200 miles
+liquid
+mantle: 50-1,790 miles
+solid
+crust: ~3-50 miles
+solid
+10-17°C
+10-14°C
+60°C
+130°C
+25°C
+open-loop
+GSHP
+closed-loop
+GSHP array
+water
+level
+mine water
+energy
+hydrothermal system
+(direct use heat)
+enhanced geothermal
+system (electricity)
+Geothermal heat and electricity
+Groundsource heating
+(shallow; constant low temperature; no ﬂuids)
+deep
+aquifer
+crystalline
+rocks
+shallow
+aquifer
+30
+60
+600
+6000
+300
+3000
+15000
+depth
+(ft)
+Relative
+favorability
+most
+least
+N/A
+no data
+hydrothermal
+site >90°C
+GEOTHERMAL ENERGY IN OREGON
+NEXT STEPS
+Oregon holds signiﬁcant geothermal assets associated with 
+volcanic features such as the Cascade Range and High Lava 
+Plains, as well as systems associated with high heat ﬂow caused 
+by crustal extension and thinning in the Basin and Range 
+Province of southeastern Oregon.
+Oregon hosts utility-scale geothermal power plants, such as 
+the Neal Hot Springs facility in Eastern Oregon. Oregon is a 
+national example of Direct Use, notably in Klamath Falls, which 
+for decades has used geothermal heating for its downtown 
+buildings and the Oregon Institute of Technology. Recently, the 
+Newberry Geothermal System has become globally signiﬁcant 
+as a premier site for Enhanced Geothermal Systems research, 
+demonstrating Superhot Rock technology can economically and 
+reliably tap extreme heat from deep, dry rock.
+Mazama Energy operations in Newberry, OR, where a 
+temperature of 331°C has been reached.
+The western U.S. holds substantial untapped geothermal energy 
+potential, but development is often hindered by inaccessible data. 
+Public and private geothermal datasets are scattered across state 
+geological surveys, private companies, and universities in various 
+formats. This impedes regional analysis, elevates exploration risks, 
+and discourages investment, limiting geothermal expansion.
+DOGAMI is joining with state surveys in NV, WA, UT, ID, MT, AZ, and 
+CA to develop a uniﬁed, publicly accessible, interactive geothermal 
+data platform known as WestGIN. The project will streamline data 
+access, build collaborations among state surveys, prioritize data 
+collection and dissemination, and create regional products from data 
+synthesis including geothermal playbook chapters. In doing so, 
+DOGAMI will fulﬁll its mission of providing earth science information 
+and regulation to make Oregon safe and prosperous. 
+OR
+WA
+MT
+ID
+UT
+AZ
+CA
+NV
+OR
+WA
+MT
+ID
+UT
+AZ
+CA
+NV
+Data gap analysis,
+collection,
+& compilation
+Database
+development
+& deployment
+Data
+dissemination
+WestGIN:
+Western States
+Geothermal Data Integration Network
+50 Miles
+50 Kilometers
+Low Temperature Geothermal
+Resource Areas
+Geothermal Prospect
+Wells (1,019)
+Hot & Warm Springs (690)
+No data
+Low
+High
+Geothermal
+Well (66)
+Low Temperature Wells (4,344)
+No data
+Low
+High
+GTILO 
+is 
+DOGAMI’s 
+geospatial 
+database system that stores and 
+manages 
+Oregon's 
+geothermal 
+resource information. This map 
+displays data that either have been 
+investigated for geothermal resource 
+potential or show potential for a 
+geothermal resource.
+The Geothermal Information Layer for Oregon (GTILO) 
+Geologic Hydrogen in Oregon
+Oregon Department of Geology and Mineral Industries
+Secure and reliable energy is critical to U.S. national security, 
+especially as the demand for clean fuels used in electric power 
+generation, manufacturing, and transportation become a 
+priority. Factors including population growth, the increasing 
+energy needs of data centers, reshoring of manufacturing, and 
+the electriﬁcation of transport and other sectors are straining 
+our ability to meet energy demands. To address this, the U.S. 
+is exploring the potential of clean, low-carbon hydrogen as a 
+new, abundant, and domestic energy source. Hydrogen is a 
+versatile fuel suitable for transportation, industrial processes, 
+and power generation because it produces zero greenhouse 
+gas emissions at the point of use. The goal is to make 
+hydrogen a cost-eﬀective and readily available option to 
+reduce carbon emissions and achieve a cleaner energy future.
+OVERVIEW
+WHAT IS GEOLOGIC HYDROGEN
+110°
+100°
+70°
+90°
+80°
+45°
+40°
+35°
+30°
+0
+0.2
+0.4
+0.6
+0.8
+1
+high
+low
+prospectivity
+Median (P50) hydrogen prospectivity[1] in the contiguous U.S.
+The engineered-hydrogen “rainbow” [3]
+500
+250
+0
+0
+1,000
+500
+km
+miles
+Generation
+1. Radiolysis
+2. Serpentinization
+3. Deep-seated
+Loss mechanisms
+4. Seeps
+5. Microbes
+6. Abiotic reactions
+Extraction
+7. Traps
+8. Direct
+9. Enhanced
+Earth’s hydrogen factories[2]
+CURRENT & EMERGING USES OF HYDROGEN
+Transportation: used in hydrogen fuel cells to 
+power electric vehicles with zero tailpipe emissions
+Industrial: a key ingredient in ammonia, for 
+fertilizers, cleaning products, and refrigerants
+Industrial: replacing coal as both the source of heat 
+and the reducing agent in steel making
+Aerospace: used as a rocket propellant and 
+potentially in aviation fuel for longer-range aircraft
+Energy Storage: improving grid stability for energy 
+produced by intermittent sources (e.g., solar, wind)
+Base from USGS, The National Map, 2021
+Albers Equal-Area Conic, USGS contiguous U.S. projection
+North American Datum of 1983
+Geologic hydrogen (sometimes referred to as white or gold 
+hydrogen) is sourced or released from underground rocks by 
+natural processes, and is generated naturally by several 
+processes (right).
+• Serpentinization: water oxidizes iron-rich minerals in rocks 
+(e.g., olivine and pyroxene). Oxygen from the water binds 
+with iron in the rock, leaving behind free hydrogen.
+• Radiolysis: natural radiation from radioactive elements 
+present in rocks, breaks down water molecules (H2O), to 
+produce free hydrogen.
+• Biological activity: hydrogen produced by microbial life 
+during metabolism (metabolic hydrogen or biohydrogen), 
+such as through fermentation or nitrogen ﬁxation.
+• Thermal cracking of hydrocarbons: organic matter deep 
+within crustal basins break down to form hydrogen.
+These natural processes can be replicated and engineered to 
+increase hydrogen production rates, such as production from 
+fossil-fuels using a process known as steam methane 
+reforming. This process uses large amounts of energy and 
+produces substantial amounts of carbon dioxide as a 
+by-product. Hydrogen can also be produced by electrolysis of 
+water, which can have a very low environmental impact if using 
+100% renewable or nuclear energy sources.
+Black/Brown
+Hydrogen
+Coal
+Gasiﬁcation
+H2 & CO2
+Gray
+Hydrogen
+Fossil fuels
+Steam
+(methane)
+reforming
+H2 & CO2
+Blue
+Hydrogen
+Fossil fuels
+Steam
+(methane)
+reforming
+with CCUS
+H2 & CO2
+(captured)
+Yellow
+Hydrogen
+Water
+Electrolysis
+using solar
+power
+H2 & O2
+Purple
+Hydrogen
+Water
+Electrolysis
+using
+nuclear
+power
+H2 & O2
+Green
+Hydrogen
+Water
+Electrolysis
+using 
+renewable
+electricity
+H2 & O2
+feedstock
+“color”
+production
+process
+products
+CONTACT INFORMATION
+Jason D. McClaughry, RG
+Geological Survey & Services Program Manager
+Tribal Liaison
+TEL: (541) 519-3419
+email: DOGAMI-info@dogami.oregon.gov
+web: https://www.oregon.gov/dogami
+Hydrogen
+1.007
+ 1 H
+atomic number
+symbol
+atomic mass
+ name
+REFERENCES
+1. Gelman et al., 2025. Prospectivity mapping for geologic hydrogen (No. 
+1900). USGS.
+2. Hand, 2023. Hidden Hydrogen. Science 379(6633)
+3. Skillen et al., 2022. Photocatalytic Reforming of Biomass: What Role Will 
+the Technology Play in Future Energy Systems. Top Curr Chem (Z) 380, 33
+Recent U.S. Geological Survey (USGS) reports[1] suggest 
+geologic hydrogen exists in quantities large enough to make a 
+signiﬁcant contribution to the U.S. energy portfolio (see 
+overleaf). USGS prospectivity models suggest that Oregon has a 
+high potential for hydrogen sources, both at the surface and at 
+depth (below). Those models provide a useful basis for early 
+exploration work in Oregon and can be used as a guide for 
+future geologic mapping and rock characterization speciﬁcally 
+for geologic hydrogen potential.
+One of the primary natural source mechanisms for hydrogen 
+production is serpentinization: the hydration of iron–bearing 
+minerals, such as olivine and pyroxene, in mantle peridotites 
+(e.g., right). Serpentinization is a “redox” (oxidation-reduction) 
+reaction, in which the ferrous iron (Fe2+) is oxidized to ferric iron 
+(Fe3+), and water (H2O) is reduced to release molecular 
+hydrogen (H2). This released hydrogen can be stored in the 
+subsurface if there is a seal and reservoir present, it may react 
+with subsurface compounds and minerals, or it can migrate 
+upward toward Earth’s surface. The USGS maps therefore 
+indicate probability of the ingredients for hydrogen, but are not 
+a guarantee that hydrogen will be present.
+HYDROGEN IN OREGON
+NEXT STEPS
+In DOGAMI's role as a regulatory and geological survey, we 
+intend to facilitate the research and development of geologic 
+hydrogen resources in Oregon. The next steps would be to 
+collect geophysical data, such as gravity, magnetic, and 
+electromagnetic data to characterize the shallow subsurface 
+and evaluate the potential for hydrogen sources, reservoirs, 
+and seals across the state. Data collected by drilling 
+information holes could be used to further evaluate 
+subsurface conditions. Notably, exploration is classiﬁed as 
+an outright land use in Oregon, and exploration projects 
+need only landowner approval to proceed to permitting.
+DOGAMI’s research and exploration of geologic hydrogen 
+resources will be guided by outreach and engagement with 
+communities and Tribal Nations at every step of the process. 
+DOGAMI will work with potentially impacted parties to 
+understand concerns and perspectives, and inform ongoing 
+project planning while openly and directly addressing 
+community feedback.
+By putting community collaboration at the forefront of the 
+research and development process, and incorporating 
+industry-established best practices, DOGAMI will fulﬁll its 
+mission of providing earth science information and regulation 
+to make Oregon safe and prosperous.
+Serpentinized ultramaﬁc rock with high-iron content, Strawberry
+Mountains, Grant County, Oregon.
+Serpentinized ultramaﬁc rocks within a shear zone, Klamath
+Mountains, Josephine County, Oregon.
+Serpentinization-source hydrogen potential in Oregon
+Deep-source geologic hydrogen potential in Oregon
+0
+100
+100 kilometers
+miles
+0
+0
+0.2
+0.4
+0.6
+0.8
+1
+Deep sources
+chance of suﬃciency
+Portland
+Salem
+Eugene
+Bend
+Hermiston Pendleton
+Baker City
+Wallowa
+National Forest
+Whitman
+National Forest
+Malheur
+National Forest
+Deschutes
+National Forest
+Umpqua
+National Forest
+Rogue River
+National Forest
+Fremont
+National Forest
+Siskiyou
+National Forest
+Willamette
+National Forest
+Mt Hood
+National Forest
+Siuslaw
+National Forest
+Umatilla
+National Forest
+The Dalles
+Medford
+Klamath Falls
+Lakeview
+Portland
+Salem
+Eugene
+Bend
+Hermiston Pendleton
+Baker City
+Wallowa
+National Forest
+Whitman
+National Forest
+Malheur
+National Forest
+Deschutes
+National Forest
+Umpqua
+National Forest
+Rogue River
+National Forest
+Fremont
+National Forest
+Siskiyou
+National Forest
+Willamette
+National Forest
+Mt Hood
+National Forest
+Siuslaw
+National Forest
+Umatilla
+National Forest
+The Dalles
+Medford
+Klamath Falls
+Lakeview
+0
+100
+100 kilometers
+miles
+0
+ultramaﬁc rocks
+0
+0.2
+0.4
+0.6
+0.8
+1
+Serpentinization source
+chance of suﬃciency
